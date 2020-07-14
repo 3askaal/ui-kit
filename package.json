@@ -1,0 +1,92 @@
+{
+  "name": "3oilerplate",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/chroma-js": "^2.0.0",
+    "@types/deepmerge": "^2.2.0",
+    "@types/jest": "^24.0.0",
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-syntax-highlighter": "^11.0.4",
+    "@types/shortid": "^0.0.29",
+    "@types/styled-components": "^5.1.0",
+    "@types/styled-system": "^5.1.9",
+    "chroma-js": "^2.1.0",
+    "jsx-to-string": "^1.4.0",
+    "material-ui-colors": "^1.0.0",
+    "normalize.css": "^8.0.1",
+    "react": "^16.13.1",
+    "react-apollo": "^3.1.5",
+    "react-app-rewire-aliases": "^0.2.0",
+    "react-app-rewired": "^2.1.6",
+    "react-dom": "^16.13.1",
+    "react-element-to-jsx-string": "^14.3.1",
+    "react-feather": "^2.0.8",
+    "react-html-parser": "^2.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-syntax-highlighter": "^12.2.1",
+    "reset-css": "^5.0.1",
+    "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5",
+    "@styled-system/css": "^5.1.5",
+    "deepmerge": "^4.2.2",
+    "shortid": "^2.2.15"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "CI= react-app-rewired build",
+    "build:lib": "tsc --p tsconfig.dist.json",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext tsx,ts './src/core'",
+    "bump:patch": "npm version patch",
+    "bump:major": "npm version major",
+    "bump:minor": "npm version minor",
+    "commit": "git add . && git commit -m 'progress' && git push",
+    "deploy": "npm run bump:patch && npm publish",
+    "release": "npm run build:lib && npm run commit && npm run deploy"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-typescript": "^8.0.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
+  }
+}
