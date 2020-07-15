@@ -1,14 +1,15 @@
 import React from 'react'
 import { Stylish } from '../../../utils'
 
-export const SSpacer = Stylish('div', ({ theme, size = 'm', style }: any) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  width: '100%',
+export const SSpacer = Stylish(
+  'div',
+  ({ theme, size = 'm', style: { flexDirection = 'column' } = {} }: any) => ({
+    display: 'flex',
+    width: '100%',
+    flexDirection,
 
-  '> *': {
-    ...(style &&
-      style.flexDirection === 'column' && {
+    '> *': {
+      ...(flexDirection === 'column' && {
         marginBottom: theme.space[size],
 
         ':last-child': {
@@ -16,16 +17,16 @@ export const SSpacer = Stylish('div', ({ theme, size = 'm', style }: any) => ({
         },
       }),
 
-    ...(style &&
-      style.flexDirection === 'row' && {
+      ...(flexDirection === 'row' && {
         marginRight: theme.space[size],
 
         ':last-child': {
           marginRight: 0,
         },
       }),
-  },
-}))
+    },
+  }),
+)
 
 export const Spacer = (props: any) => {
   return <SSpacer sRef="Spacer" {...props} />
