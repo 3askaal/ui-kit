@@ -50,7 +50,10 @@ const Button = styled.button(
 ## Installation
 
 Install the dependency:
-`npm install 3oilerplate`
+
+```
+npm install 3oilerplate
+```
 
 ## How to use
 
@@ -153,7 +156,7 @@ Variants are applied when you pass a prop with a true value that matches the nam
 <Button isSecondary />
 ```
 
-Variants are defined in the component declaration as showed before, but also in the theme configuration.
+Variants can be defined in the component declaration as showed before, but also in the theme configuration.
 
 ```ts
 const theme = {
