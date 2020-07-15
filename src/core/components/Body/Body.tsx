@@ -32,6 +32,4 @@ export const SBody = Stylish('div', {
   },
 })
 
-export const Body = ({ style, ...props }: any) => (
-  <SBody sRef="Body" {...style} {...props} />
-)
+export const Body = ({ ...props }: any) => <SBody sRef="Body" {...props} />
