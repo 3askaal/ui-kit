@@ -2,10 +2,6 @@ import React from 'react'
 import { Stylish } from '../../utils'
 
 export const SBody = Stylish('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-
   'p, li': {
     lineHeight: 1.6,
   },
