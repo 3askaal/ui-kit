@@ -2,20 +2,114 @@
 
 Personal React User Interface kit.
 
-After working with **Styled Components** and **Styled System** for a while (with Style Objects instead of template literals). I got really annoyed by the fact that you can't use Styled System's theming magic in the styling at component declaration level, this functionality is only exposed to the style props you add to your component. I also wanted to be able to override styling on inline level and theme level.
+## Introduction
 
-## Stylish Util
+After working with **Styled Components** and **Styled System** for a while (with Style Objects instead of template literals). I wanted to be able to pass Style Objects with the theming magic of Styled System to my Styled Components. So I made this wrapper that uses the `css()` function from Styled System's core functionality (`@styled-system/css`), which allows you to use theme keys in the style objects you pass to it.
 
-Wrapper around Styled Components where you can pass **Default Styles** and **Variant Styles** to. These Style Objects are parsed with the `css()` function from Styled System's core functionality (`@styled-system/css`). This means you can use values that are stored in Styled Component's ThemeProvider everywhere.
+So you can do this:
 
-The **first parameter** is element type you want to create with Styled Components. The **second parameter** is a Style Object for the **Default Styling**. The **third parameter** is an object that holds Style Objects for **the variants**.
+```tsx
+import { Stylish } from '3oilerplate'
 
-An example on how to do this below:
+const Button = Stylish({
+  type: 'button',
+  defaults: {
+    backgroundColor: 'primary',
+  },
+  variants: {
+    isSecondary: {
+      backgroundColor: 'secondary',
+    },
+  },
+})
+```
+
+Instead of this:
+
+```tsx
+import { styled } from 'styled-components'
+import { variants, flexbox, color, border } from 'styled-system'
+
+const Button = styled.button(
+  ({ theme }) => ({
+    backgroundColor: theme.colors.primary,
+  }),
+  ({ theme }) =>
+    variants({
+      isSecondary: {
+        backgroundColor: theme.colors.secondary,
+      },
+    }),
+  flexbox,
+  color,
+  border,
+  ...
+)
+```
+
+## Installation
+
+Install the dependency:
+`npm install 3oilerplate`
+
+## How to use
+
+Wrap your application in a ThemeProvider:
+
+```tsx
+import { ThemeProvider, Text } from '3oilerplate'
+import theme from './style/theme'
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Text>Hello world</Text>
+    </ThemeProvider>
+  )
+}
+```
+
+### Define a theme
 
 ```ts
-const Button = Stylish(
-  'button',
-  {
+const theme = {
+  breakpoints: ['320px', '640px', '768px', '1024px', '1440px'],
+  space: {
+    xs: '0.5rem',
+    s: '0.75rem',
+    m: '1.25rem',
+    l: '2.5rem',
+    xl: '3.75rem',
+  },
+  colors: {
+    primary: '#3e64ff',
+    secondary: '#7c73e6',
+  },
+  fonts: {
+    base: "'Source Sans Pro', Helvetica, Arial, sans-serif",
+    code: 'Consolas, Monaco, monospace, Arial, sans-serif',
+  },
+  radii: {
+    s: '0.125rem',
+    m: '0.25rem',
+    l: '0.5rem',
+  },
+}
+```
+
+### Define custom components
+
+- `type`: type of element you want to create with Styled Components
+- `defaults`: style object for the default styling
+- `variants`: style objects for variants
+- `ref`: to be able to override styling or add variants on the theme level.
+
+```ts
+import { Stylish } from '3oilerplate'
+
+const Text = Stylish({
+  type: 'p',
+  defaults: {
     backgroundColor: 'primary',
     color: 'white',
 
@@ -23,7 +117,7 @@ const Button = Stylish(
       backgroundColor: 'primaryDark',
     },
   },
-  {
+  variants: {
     isSecondary: {
       backgroundColor: 'secondary',
 
@@ -32,41 +126,38 @@ const Button = Stylish(
       },
     },
   },
-)
+  ref: 'Text',
+})
 ```
 
-### Stylish Components
+### Use your custom components or components from this library
 
-#### Variant Styles
+```tsx
+import { Container } from '3oilerplate'
+import { Text } from '@components'
 
-Variants can be defined in the component declaration. But can also be defined and overridden in the theme object. Variants are applied when you pass a prop that matches the name of the variant, with a true value.
+const PageComponent = () => {
+  return (
+    <Container>
+      <Text>Hello World</Text>
+    </Container>
+  )
+}
+```
+
+### Variant Styles
+
+Variants are applied when you pass a prop with a true value that matches the name of a variant.
 
 ```tsx
 <Button isSecondary />
 ```
 
-#### Inline Styles
-
-Each component defined with Stylish has a `style` prop you can pass inline styling to.
-
-An example on how to do this below:
-
-```tsx
-<Button style={{ backgroundColor: 'secondary' }} />
-```
-
-#### Styling from the theme
-
-Each component has an `sRef` attribute with a reference name, this makes it possible to override the styling of each component at the theme level. You can override the default styling but also each variant of the component.
-
-An example on how to do this below:
+Variants are defined in the component declaration as showed before, but also in the theme configuration.
 
 ```ts
 const theme = {
-  colors: {
-    primary: '#3e64ff',
-    secondary: '#7c73e6',
-  },
+  ...,
   components: {
     Button: {
       default: {
@@ -74,8 +165,48 @@ const theme = {
       },
       variants: {
         outline: {
+          background: 'transparent',
           borderColor: 'secondary',
         },
+      },
+    },
+  },
+}
+```
+
+### Inline Styles
+
+Each component defined with Stylish has a `style` prop you can pass inline styling to.
+
+```tsx
+<Button style={{ backgroundColor: 'secondary' }} />
+```
+
+### Components with children
+
+When you use the `ref` field when defining components.
+
+You can apply inline styling to children of containing components:
+
+```tsx
+<Checkbox
+  style={{
+    borderColor: 'secondary',
+    Checkbox_Indicator: { backgroundColor: 'secondary' },
+  }}
+/>
+```
+
+You can also apply styling to these children in the theme configuration:
+
+```ts
+const theme = {
+  ...,
+  components: {
+    Checkbox: {
+      default: {
+        borderColor: 'secondary',
+        Checkbox_Indicator: { backgroundColor: 'secondary' },
       },
     },
   },
