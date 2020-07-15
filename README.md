@@ -167,7 +167,7 @@ const theme = {
         backgroundColor: 'secondary',
       },
       variants: {
-        outline: {
+        isOutline: {
           background: 'transparent',
           borderColor: 'secondary',
         },
