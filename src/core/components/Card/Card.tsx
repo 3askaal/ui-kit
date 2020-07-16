@@ -28,9 +28,10 @@ export const Card: FC<any> = ({
   header,
   children,
   style = {},
+  ...props
 }: any): ReactElement => {
   return (
-    <SCard sRef="Card" {...style}>
+    <SCard sRef="Card" {...style} {...props}>
       {header && (
         <SCardHeader sRef="Card_Header" {...style._header}>
           {header}
