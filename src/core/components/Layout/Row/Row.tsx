@@ -4,7 +4,7 @@ import { SCol } from '..'
 
 export const SRow = Stylish(
   'div',
-  ({ theme, style: { flexWrap = 'nowrap' } = {}, gutter = 'm' }: any) => ({
+  ({ theme, style: { flexWrap = 'wrap' } = {}, gutter = 'm' }: any) => ({
     display: 'flex',
     flexDirection: 'row',
     flexWrap,
