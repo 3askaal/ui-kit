@@ -10,7 +10,7 @@ export const SInput = Stylish(
     borderRadius: 'm',
     padding: 's',
     backgroundColor: 'transparent',
-    minWidth: '220px',
+    minWidth: '200px',
 
     ':focus': {
       outline: 0,
