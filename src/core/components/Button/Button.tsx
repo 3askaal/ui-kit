@@ -4,6 +4,7 @@ import { Stylish } from '../../utils'
 const ButtonReset: any = {
   backgroundColor: 'transparent',
   border: 0,
+  outline: 0,
   cursor: 'pointer',
 }
 
