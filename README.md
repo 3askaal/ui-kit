@@ -1,51 +1,16 @@
 # 3oilerplate
 
-Personal React User Interface kit.
+Personal React Component Library and Toolkit.
 
-## Introduction
+This library heavily relies on **Styled Components** and **Styled System**.
 
-After working with **Styled Components** and **Styled System** for a while (with Style Objects instead of template literals). I wanted to be able to pass Style Objects with the theming magic of Styled System to my Styled Components. So I made this wrapper that uses the `css()` function from Styled System's core functionality (`@styled-system/css`), which allows you to use theme keys in the style objects you pass to it.
+Features:
 
-So you can do this:
-
-```tsx
-import { Stylish } from '3oilerplate'
-
-const Button = Stylish({
-  type: 'button',
-  defaults: {
-    backgroundColor: 'primary',
-  },
-  variants: {
-    isSecondary: {
-      backgroundColor: 'secondary',
-    },
-  },
-})
-```
-
-Instead of this:
-
-```tsx
-import { styled } from 'styled-components'
-import { variants, flexbox, color, border } from 'styled-system'
-
-const Button = styled.button(
-  ({ theme }) => ({
-    backgroundColor: theme.colors.primary,
-  }),
-  ({ theme }) =>
-    variants({
-      isSecondary: {
-        backgroundColor: theme.colors.secondary,
-      },
-    }),
-  flexbox,
-  color,
-  border,
-  ...
-)
-```
+- Use theme values provided by Styled System wherever you want
+- Declare component Styles and component variant Styles easier
+- Override component Styles with the `style` attribute
+- Override component Styles from inside the theme configuration
+- Override child elements of components
 
 ## Installation
 
@@ -110,8 +75,8 @@ const theme = {
 ```ts
 import { Stylish } from '3oilerplate'
 
-const Text = Stylish({
-  type: 'p',
+const Button = Stylish({
+  type: 'button',
   defaults: {
     backgroundColor: 'primary',
     color: 'white',
@@ -129,7 +94,7 @@ const Text = Stylish({
       },
     },
   },
-  ref: 'Text',
+  ref: 'Button',
 })
 ```
 
