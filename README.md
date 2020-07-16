@@ -6,11 +6,11 @@ This library heavily relies on **Styled Components** and **Styled System**.
 
 Features:
 
-- Use theme values provided by Styled System wherever you want
-- Declare component Styles and component variant Styles easier
-- Override component Styles with the `style` attribute
-- Override component Styles from inside the theme configuration
-- Override child elements of components
+- Use **theme values** provided by Styled System wherever you want
+- Declare **component styles** and component **variant styles** easier
+- Override component styles with the `style` attribute
+- Override component styles from inside the **theme configuration**
+- Override **child elements** of components
 
 ## Installation
 
