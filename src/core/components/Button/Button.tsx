@@ -59,7 +59,7 @@ export const SButton: any = Stylish(
       pointerEvents: 'none',
     },
     isBlock: {
-      flexGrow: 1,
+      width: '100%',
     },
   },
 )
