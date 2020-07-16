@@ -10,7 +10,7 @@ Features:
 - Declare **component styles** and **variant styles** easier
 - Override component styles with the `style` attribute
 - Override component styles from inside the **theme configuration**
-- Override **child elements** of components
+- Override styles of **child elements** in components
 
 ## Installation
 
