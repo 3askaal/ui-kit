@@ -14,8 +14,6 @@ Features:
 
 ## Installation
 
-Install the dependency:
-
 ```
 npm install 3oilerplate
 ```
