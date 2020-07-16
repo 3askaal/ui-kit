@@ -27,19 +27,12 @@ export const SCardContent = Stylish('div', {
 export const Card: FC<any> = ({
   header,
   children,
-  style = {},
   ...props
 }: any): ReactElement => {
   return (
-    <SCard sRef="Card" {...style} {...props}>
-      {header && (
-        <SCardHeader sRef="Card_Header" {...style._header}>
-          {header}
-        </SCardHeader>
-      )}
-      <SCardContent sRef="Card_Content" {...style._content}>
-        {children}
-      </SCardContent>
+    <SCard sRef="Card" {...props}>
+      {header && <SCardHeader sRef="Card_Header">{header}</SCardHeader>}
+      <SCardContent sRef="Card_Content">{children}</SCardContent>
     </SCard>
   )
 }
