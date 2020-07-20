@@ -1,7 +1,6 @@
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 
-export const SInput = Stylish(
-  'input',
+export const SInput = styled.input(
   {
     display: 'flex',
     border: 'thick',

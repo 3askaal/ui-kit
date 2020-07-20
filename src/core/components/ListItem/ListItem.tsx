@@ -1,8 +1,7 @@
 import React, { ReactElement, FC } from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SListItem = Stylish(
-  'div',
+export const SListItem = styled.div(
   {
     padding: 's',
 

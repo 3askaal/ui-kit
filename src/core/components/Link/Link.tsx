@@ -1,7 +1,7 @@
 import React, { ReactElement, FC } from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SLink = Stylish('a', {
+export const SLink = styled.a({
   textDecoration: 'underline',
   color: 'primary',
 

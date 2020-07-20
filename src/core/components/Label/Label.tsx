@@ -1,8 +1,7 @@
 import React from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SLabel = Stylish(
-  'div',
+export const SLabel = styled.div(
   {
     display: 'flex',
     paddingY: 'xxs',

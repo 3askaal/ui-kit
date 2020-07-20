@@ -1,6 +1,6 @@
-import { Stylish } from '@core'
+import { styled } from '@core'
 
-export const SApp = Stylish('div', {
+export const SApp = styled.div({
   backgroundColor: 'white',
   color: 'black',
   display: 'flex',

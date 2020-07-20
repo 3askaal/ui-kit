@@ -1,7 +1,7 @@
 import React, { ReactElement, FC } from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SCard = Stylish('div', {
+export const SCard = styled.div({
   display: 'flex',
   flexDirection: 'column',
   overflow: 'hidden',
@@ -11,7 +11,7 @@ export const SCard = Stylish('div', {
   borderRadius: 'm',
 })
 
-export const SCardHeader = Stylish('div', {
+export const SCardHeader = styled.div({
   fontWeight: 'bold',
   padding: 's',
   borderBottom: 'main',
@@ -20,7 +20,7 @@ export const SCardHeader = Stylish('div', {
   color: 'white',
 })
 
-export const SCardContent = Stylish('div', {
+export const SCardContent = styled.div({
   padding: 'm',
 })
 

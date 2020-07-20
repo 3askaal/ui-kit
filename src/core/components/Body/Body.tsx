@@ -1,7 +1,7 @@
 import React from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SBody = Stylish('div', {
+export const SBody = styled.div({
   'p, li': {
     lineHeight: 1.6,
   },

@@ -1,7 +1,6 @@
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SMenuItem = Stylish(
-  'div',
+export const SMenuItem = styled.div(
   {
     display: 'flex',
     height: '100%',

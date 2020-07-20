@@ -1,7 +1,7 @@
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 import { SCheckboxWrapper } from '../Checkbox/Checkbox.styled'
 
-export const SCheckboxGroup = Stylish('div', {
+export const SCheckboxGroup = styled.div({
   [SCheckboxWrapper]: {
     marginBottom: 's',
 

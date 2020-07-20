@@ -1,13 +1,13 @@
-import { Stylish } from '@core'
+import { styled } from '@core'
 
-export const SPreviewComponent = Stylish('div', {
+export const SPreviewComponent = styled.div({
   marginBottom: 'l',
   border: 'main',
   borderColor: 'grey10',
   borderRadius: 'm',
 })
 
-export const SPreviewComponentContent = Stylish('div', {
+export const SPreviewComponentContent = styled.div({
   display: 'flex',
   width: '100%',
   padding: 'l',
@@ -17,7 +17,7 @@ export const SPreviewComponentContent = Stylish('div', {
   },
 })
 
-export const SPreviewComponentSource = Stylish('div', {
+export const SPreviewComponentSource = styled.div({
   display: 'flex',
   flexDirection: 'column',
   backgroundColor: 'code',

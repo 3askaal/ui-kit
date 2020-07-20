@@ -1,7 +1,7 @@
 import React from 'react'
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 
-export const SContainer = Stylish('div', {
+export const SContainer = styled.div({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
