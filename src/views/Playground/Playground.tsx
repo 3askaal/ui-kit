@@ -135,7 +135,7 @@ export const PlaygroundView = () => {
           <Preview title="Checkbox">
             <Checkbox />
             <Checkbox isChecked />
-            <Checkbox isChecked disabled />
+            <Checkbox isChecked isDisabled />
             <Checkbox label="Checkbox with label" />
             <Checkbox isChecked label="Checked Checkbox with label" />
             <Checkbox

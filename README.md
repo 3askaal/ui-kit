@@ -2,12 +2,12 @@
 
 Personal React Component Library and Toolkit.
 
-This library heavily relies on **Styled Components** and **Styled System**.
+This library heavily relies on **Styled Components** and **Styled System**. It includes a set of Styled Components extended with some props. And a wrapper you can create these components with yourself
 
 Features:
 
-- Use **theme values** provided by Styled System wherever you want
 - Declare **component styles** and **variant styles** easier
+- Use **theme values** provided by Styled System wherever you want
 - Override component styles with the `style` attribute
 - Override component styles from inside the **theme configuration**
 - Override styles of **child elements** in components
@@ -65,17 +65,14 @@ const theme = {
 
 ### Define custom components
 
-- `type`: type of element you want to create with Styled Components
 - `defaults`: style object for the default styling
 - `variants`: style objects for variants
 - `ref`: to be able to override styling or add variants on the theme level.
 
 ```ts
-import { Stylish } from '3oilerplate'
+import { styled } from '3oilerplate'
 
-const Button = Stylish({
-  type: 'button',
-  defaults: {
+const Button = styled.button({
     backgroundColor: 'primary',
     color: 'white',
 
@@ -83,7 +80,7 @@ const Button = Stylish({
       backgroundColor: 'primaryDark',
     },
   },
-  variants: {
+  {
     isSecondary: {
       backgroundColor: 'secondary',
 
@@ -92,7 +89,7 @@ const Button = Stylish({
       },
     },
   },
-  ref: 'Button',
+  'Button',
 })
 ```
 
@@ -142,7 +139,7 @@ const theme = {
 
 ### Inline Styles
 
-Each component defined with Stylish has a `style` prop you can pass inline styling to.
+Each component has a `style` prop you can pass inline styling to.
 
 ```tsx
 <Button style={{ backgroundColor: 'secondary' }} />
@@ -163,7 +160,7 @@ You can apply inline styling to children of containing components:
 />
 ```
 
-You can also apply styling to these children in the theme configuration:
+You can also apply styling to a component's children in the theme configuration:
 
 ```ts
 const theme = {
