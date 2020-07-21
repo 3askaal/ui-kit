@@ -64,11 +64,7 @@ const theme = {
 
 ### Define components
 
-| Param    | Type                | Description                                                    |
-| -------- | ------------------- | -------------------------------------------------------------- |
-| defaults | <code>object</code> | default styling                                                |
-| variants | <code>object</code> | variant styling                                                |
-| ref      | <code>string</code> | referende to be able to override components and subscomponents |
+Define components with the `styled` wrapper.
 
 ```ts
 import { styled } from '3oilerplate'
@@ -93,6 +89,12 @@ const Button = styled.button({
   'Button',
 })
 ```
+
+| Param    | Type                | Description                                                    |
+| -------- | ------------------- | -------------------------------------------------------------- |
+| defaults | <code>object</code> | default styling                                                |
+| variants | <code>object</code> | variant styling                                                |
+| ref      | <code>string</code> | referende to be able to override components and subscomponents |
 
 ### Use your custom components or components from this library
 
