@@ -9,7 +9,7 @@ export const SCheckbox = styled.div({
   height: '1.4rem',
   flexShrink: 0,
   cursor: 'pointer',
-  border: 'main',
+  border: 'thick',
   color: 'primary',
   borderColor: 'currentColor',
   borderRadius: 'm',

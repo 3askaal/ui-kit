@@ -1,16 +1,11 @@
 # 3oilerplate
 
-Personal React Component Library and Toolkit.
+Personal React Component Library and Toolkit. With a **wrapper** around **Styled Components** that brings **Styled System's theming magic** into components. With this functionality you can do the following:
 
-This library heavily relies on **Styled Components** and **Styled System**. It includes a set of Styled Components extended with some props. And a wrapper you can create these components with yourself
-
-Features:
-
-- Declare **component styles** and **variant styles** easier
-- Use **theme values** provided by Styled System wherever you want
-- Override component styles with the `style` attribute
-- Override component styles from inside the **theme configuration**
-- Override styles of **child elements** in components
+- Declare component styles and variants with **theme values**
+- Override component styles with the `style` prop
+- Override component styles or add variants in the **theme object**
+- Override styles of **child elements** of components by using the `sRef` prop
 
 ## Installation
 
@@ -38,6 +33,8 @@ const App = () => {
 ### Define a theme
 
 ```ts
+import { darken } from '3oilerplate'
+
 const theme = {
   breakpoints: ['320px', '640px', '768px', '1024px', '1440px'],
   space: {
@@ -49,7 +46,9 @@ const theme = {
   },
   colors: {
     primary: '#3e64ff',
+    primaryDark: darken('#3e64ff', 0.25),
     secondary: '#7c73e6',
+    secondaryDark: darken('#7c73e6', 0.25),
   },
   fonts: {
     base: "'Source Sans Pro', Helvetica, Arial, sans-serif",
@@ -63,11 +62,15 @@ const theme = {
 }
 ```
 
-### Define custom components
+### Define components
 
-- `defaults`: style object for the default styling
-- `variants`: style objects for variants
-- `ref`: to be able to override styling or add variants on the theme level.
+Define components with the Styled Components wrapper:
+
+| Param    | Type                | Description                                                    |
+| -------- | ------------------- | -------------------------------------------------------------- |
+| defaults | <code>object</code> | default styling                                                |
+| variants | <code>object</code> | variant styling                                                |
+| ref      | <code>object</code> | referende to be able to override components and subscomponents |
 
 ```ts
 import { styled } from '3oilerplate'

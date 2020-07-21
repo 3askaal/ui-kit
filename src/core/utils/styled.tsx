@@ -26,10 +26,11 @@ export const styledWrapper = (
   props: any,
   defaultStyles?: any,
   variantStyles?: any,
+  sRef?: string,
 ) => {
-  const { theme, style: inlineStyles, sRef } = props
+  const { theme, style: inlineStyles, sRef: sRefProp } = props
   const styleFunctions: any[] = []
-  const themeStyles = get(theme.components, sRef)
+  const themeStyles = get(theme.components, sRef || sRefProp)
 
   const newProps = { ...props }
 
@@ -77,9 +78,9 @@ export const styled: any = mapValues(
   (value: () => any): any => {
     return wrap(
       value,
-      (func: any, defaultStyles?: any, variantStyles?: any) => {
+      (func: any, defaultStyles?: any, variantStyles?: any, sRef?: string) => {
         return func((props: any) => {
-          return styledWrapper(props, defaultStyles, variantStyles)
+          return styledWrapper(props, defaultStyles, variantStyles, sRef)
         })
       },
     )
