@@ -70,7 +70,7 @@ Define components with the Styled Components wrapper:
 | -------- | ------------------- | -------------------------------------------------------------- |
 | defaults | <code>object</code> | default styling                                                |
 | variants | <code>object</code> | variant styling                                                |
-| ref      | <code>object</code> | referende to be able to override components and subscomponents |
+| ref      | <code>string</code> | referende to be able to override components and subscomponents |
 
 ```ts
 import { styled } from '3oilerplate'
