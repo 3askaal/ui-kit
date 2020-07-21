@@ -1,7 +1,8 @@
 import styledComponents from 'styled-components'
 import { css } from '@styled-system/css'
-import { forOwn, get, isArray, mapValues, wrap } from 'lodash'
+import { forOwn, get, mapValues, wrap } from 'lodash'
 import deepmerge from 'deepmerge'
+import { resolveStylePropOnChildren } from './children'
 
 function resolveInputType(styles: any, props: any) {
   if (typeof styles === 'function') {
@@ -11,21 +12,10 @@ function resolveInputType(styles: any, props: any) {
   return css(styles)
 }
 
-function passStylePropsToChildren(style: any, child: any) {
-  if (child && child.sRef && style[child.sRef]) {
-    return {
-      ...child,
-      style: style[child.sRef],
-    }
-  }
-
-  return child
-}
-
 export const styledWrapper = (
   props: any,
   defaultStyles?: any,
-  variantStyles?: any,
+  variants?: any,
   sRef?: string,
 ) => {
   const { theme, style: inlineStyles, sRef: sRefProp } = props
@@ -35,16 +25,10 @@ export const styledWrapper = (
   const newProps = { ...props }
 
   if (newProps.children) {
-    if (isArray(newProps.children)) {
-      newProps.children = newProps.children.map((child: any) =>
-        passStylePropsToChildren(newProps.style, child),
-      )
-    } else {
-      newProps.children = passStylePropsToChildren(
-        newProps.style,
-        newProps.children,
-      )
-    }
+    newProps.children = resolveStylePropOnChildren(
+      newProps.children,
+      newProps.style,
+    )
   }
 
   if (defaultStyles) {
@@ -56,7 +40,7 @@ export const styledWrapper = (
   }
 
   const mergedVariants = deepmerge(
-    variantStyles,
+    variants,
     (themeStyles && themeStyles.variants) || {},
   )
 
@@ -78,9 +62,9 @@ export const styled: any = mapValues(
   (value: () => any): any => {
     return wrap(
       value,
-      (func: any, defaultStyles?: any, variantStyles?: any, sRef?: string) => {
+      (func: any, defaultStyles?: any, variants?: any, sRef?: string) => {
         return func((props: any) => {
-          return styledWrapper(props, defaultStyles, variantStyles, sRef)
+          return styledWrapper(props, defaultStyles, variants, sRef)
         })
       },
     )

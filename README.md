@@ -1,6 +1,6 @@
 # 3oilerplate
 
-Personal React Component Library and Toolkit. With a **wrapper** around **Styled Components** that brings **Styled System's theming magic** into components. With this functionality you can do the following:
+Personal React Component Library and Toolkit. With a **wrapper** around **Styled Components** that brings **Styled System's theming magic** into components.
 
 - Declare component styles and variants with **theme values**
 - Override component styles with the `style` prop
@@ -100,7 +100,7 @@ const Button = styled.button({
 import { Container } from '3oilerplate'
 import { Text } from '@components'
 
-const PageComponent = () => {
+const HelloWorldComponent = () => {
   return (
     <Container>
       <Text>Hello World</Text>

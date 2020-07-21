@@ -1,2 +1,2 @@
-export * from './styled'
+export * from './style/styled'
 export * from './misc'
