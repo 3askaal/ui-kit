@@ -64,8 +64,6 @@ const theme = {
 
 ### Define components
 
-Define components with the Styled Components wrapper:
-
 | Param    | Type                | Description                                                    |
 | -------- | ------------------- | -------------------------------------------------------------- |
 | defaults | <code>object</code> | default styling                                                |
