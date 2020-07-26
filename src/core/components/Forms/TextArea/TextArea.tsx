@@ -1,7 +1,7 @@
 import React, { ReactElement, FC, useEffect, useRef } from 'react'
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 
-export const STextArea = Stylish('textarea', {
+export const STextArea = styled.textarea({
   display: 'flex',
   border: 'thick',
   color: 'primary',

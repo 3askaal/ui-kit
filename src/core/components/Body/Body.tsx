@@ -1,11 +1,7 @@
 import React from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SBody = Stylish('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-
+export const SBody = styled.div({
   'p, li': {
     lineHeight: 1.6,
   },
@@ -32,6 +28,4 @@ export const SBody = Stylish('div', {
   },
 })
 
-export const Body = ({ style, ...props }: any) => (
-  <SBody sRef="Body" {...style} {...props} />
-)
+export const Body = ({ ...props }: any) => <SBody sRef="Body" {...props} />

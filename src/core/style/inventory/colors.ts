@@ -15,15 +15,15 @@ const secondary: string = '#7c73e6'
 const secondaryDark: string = darken(secondary, 0.4)
 
 const greys: any = {
-  grey10: darken('white', 1),
-  grey20: darken('white', 2),
-  grey30: darken('white', 3),
-  grey40: darken('white', 4),
-  grey50: darken('white', 5),
-  grey60: darken('white', 6),
-  grey70: darken('white', 7),
-  grey80: darken('white', 8),
-  grey90: darken('white', 9),
+  grey10: darken('white', 0.5),
+  grey20: darken('white', 1),
+  grey30: darken('white', 1.5),
+  grey40: darken('white', 2),
+  grey50: darken('white', 2.5),
+  grey60: darken('white', 3),
+  grey70: darken('white', 3.5),
+  grey80: darken('white', 4),
+  grey90: darken('white', 4.5),
 }
 
 export const colors: Colors = {

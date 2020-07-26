@@ -1,7 +1,7 @@
 import React, { ReactElement, FC } from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SCard = Stylish('div', {
+export const SCard = styled.div({
   display: 'flex',
   flexDirection: 'column',
   overflow: 'hidden',
@@ -11,7 +11,7 @@ export const SCard = Stylish('div', {
   borderRadius: 'm',
 })
 
-export const SCardHeader = Stylish('div', {
+export const SCardHeader = styled.div({
   fontWeight: 'bold',
   padding: 's',
   borderBottom: 'main',
@@ -20,25 +20,19 @@ export const SCardHeader = Stylish('div', {
   color: 'white',
 })
 
-export const SCardContent = Stylish('div', {
+export const SCardContent = styled.div({
   padding: 'm',
 })
 
 export const Card: FC<any> = ({
   header,
   children,
-  style = {},
+  ...props
 }: any): ReactElement => {
   return (
-    <SCard sRef="Card" {...style}>
-      {header && (
-        <SCardHeader sRef="Card_Header" {...style._header}>
-          {header}
-        </SCardHeader>
-      )}
-      <SCardContent sRef="Card_Content" {...style._content}>
-        {children}
-      </SCardContent>
+    <SCard sRef="Card" {...props}>
+      {header && <SCardHeader sRef="Card_Header">{header}</SCardHeader>}
+      <SCardContent sRef="Card_Content">{children}</SCardContent>
     </SCard>
   )
 }

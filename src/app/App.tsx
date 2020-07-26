@@ -6,25 +6,29 @@ import { Wrapper, FormResetStyle, GlobalStyle, theme } from '@core'
 import { PlaygroundView } from '../views/Playground/Playground'
 import { SApp } from './App.styled'
 import './fonts.css'
+import { Sidebar } from '../components'
 
 const history = createBrowserHistory()
 
-export const App = () => {
+export default () => {
   return (
     <ThemeProvider theme={theme}>
       <SApp>
         <GlobalStyle />
         <FormResetStyle />
-        <Wrapper>
-          <Router history={history}>
+        <Router history={history}>
+          <Sidebar />
+          <Wrapper>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/getting-started">
                 <PlaygroundView />
               </Route>
-              <Route path="/social/friends" />
+              <Route exact path="/components">
+                <PlaygroundView />
+              </Route>
             </Switch>
-          </Router>
-        </Wrapper>
+          </Wrapper>
+        </Router>
       </SApp>
     </ThemeProvider>
   )

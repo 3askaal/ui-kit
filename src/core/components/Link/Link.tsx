@@ -1,7 +1,7 @@
 import React, { ReactElement, FC } from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SLink = Stylish('a', {
+export const SLink = styled.a({
   textDecoration: 'underline',
   color: 'primary',
 
@@ -12,6 +12,6 @@ export const SLink = Stylish('a', {
   },
 })
 
-export const Link: FC<any> = ({ to, style, ...props }: any): ReactElement => {
-  return <SLink sRef="Link" href={to} {...props} {...style} />
+export const Link: FC<any> = ({ to, ...props }: any): ReactElement => {
+  return <SLink sRef="Link" href={to || '#'} {...props} />
 }

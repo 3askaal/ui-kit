@@ -1,21 +1,81 @@
 # 3oilerplate
 
-Personal React User Interface kit.
+Personal React Component Library and Toolkit. With a **wrapper** around **Styled Components** that brings **Styled System's theming magic** into components.
 
-After working with **Styled Components** and **Styled System** for a while (with Style Objects instead of template literals), I got really annoyed by a few little things that I felt could work easier. So I wanted to write components and utils to combine the best of both worlds.
+- Declare component styles and variants with **theme values**
+- Override component styles with the `style` prop
+- Override component styles or add variants in the **theme object**
+- Override styles of **child elements** of components by using the `sRef` prop
 
-## Stylish Util
+## Installation
 
-Wrapper around Styled Components where you can pass **Default Styles** and **Variant Styles** to. These Style Objects are parsed with the `css()` function from Styled System's core functionality (`@styled-system/css`). This means you can use values that are stored in Styled Component's ThemeProvider everywhere.
+```
+npm install 3oilerplate
+```
 
-The **first parameter** is element type you want to create with Styled Components. The **second parameter** is a Style Object for the **Default Styling**. The **third parameter** is an object that holds Style Objects for **the variants**.
+## How to use
 
-An example on how to do this below:
+Wrap your application in a ThemeProvider:
+
+```tsx
+import { ThemeProvider, Text } from '3oilerplate'
+import theme from './style/theme'
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Text>Hello world</Text>
+    </ThemeProvider>
+  )
+}
+```
+
+### Define a theme
 
 ```ts
-const Button = Stylish(
-  'button',
-  {
+import { darken } from '3oilerplate'
+
+const theme = {
+  breakpoints: ['320px', '640px', '768px', '1024px', '1440px'],
+  space: {
+    xs: '0.5rem',
+    s: '0.75rem',
+    m: '1.25rem',
+    l: '2.5rem',
+    xl: '3.75rem',
+  },
+  colors: {
+    primary: '#3e64ff',
+    primaryDark: darken('#3e64ff', 0.25),
+    secondary: '#7c73e6',
+    secondaryDark: darken('#7c73e6', 0.25),
+  },
+  fonts: {
+    base: "'Source Sans Pro', Helvetica, Arial, sans-serif",
+    code: 'Consolas, Monaco, monospace, Arial, sans-serif',
+  },
+  radii: {
+    s: '0.125rem',
+    m: '0.25rem',
+    l: '0.5rem',
+  },
+}
+```
+
+### Define components
+
+Define components with the `styled` wrapper.
+
+| Param    | Type                | Description                                                    |
+| -------- | ------------------- | -------------------------------------------------------------- |
+| defaults | <code>object</code> | default styling                                                |
+| variants | <code>object</code> | variant styling                                                |
+| ref      | <code>string</code> | referende to be able to override components and subscomponents |
+
+```ts
+import { styled } from '3oilerplate'
+
+const Button = styled.button({
     backgroundColor: 'primary',
     color: 'white',
 
@@ -32,50 +92,87 @@ const Button = Stylish(
       },
     },
   },
-)
+  'Button',
+})
 ```
 
-### Stylish Components
+### Use your custom components or components from this library
 
-#### Variant Styles
+```tsx
+import { Container } from '3oilerplate'
+import { Text } from '@components'
 
-Variants can be defined in the component declaration. But can also be defined and overridden in the theme object. Variants are applied when you pass a prop that matches the name of the variant, with a true value.
+const HelloWorldComponent = () => {
+  return (
+    <Container>
+      <Text>Hello World</Text>
+    </Container>
+  )
+}
+```
+
+### Variant Styles
+
+Variants are applied when you pass a prop with a true value that matches the name of a variant.
 
 ```tsx
 <Button isSecondary />
 ```
 
-#### Inline Styles
-
-Each component defined with Stylish has a `style` prop you can pass inline styling to.
-
-An example on how to do this below:
-
-```tsx
-<Button style={{ backgroundColor: 'secondary' }} />
-```
-
-#### Styling from the theme
-
-Each component has an `sRef` attribute with a reference name, this makes it possible to override the styling of each component at the theme level. You can override the default styling but also each variant of the component.
-
-An example on how to do this below:
+Variants can be defined in the component declaration as showed before, but also in the theme configuration.
 
 ```ts
 const theme = {
-  colors: {
-    primary: '#3e64ff',
-    secondary: '#7c73e6',
-  },
+  ...,
   components: {
     Button: {
       default: {
         backgroundColor: 'secondary',
       },
       variants: {
-        outline: {
+        isOutline: {
+          background: 'transparent',
           borderColor: 'secondary',
         },
+      },
+    },
+  },
+}
+```
+
+### Inline Styles
+
+Each component has a `style` prop you can pass inline styling to.
+
+```tsx
+<Button style={{ backgroundColor: 'secondary' }} />
+```
+
+### Components with children
+
+When you use the `ref` field when defining components.
+
+You can apply inline styling to children of containing components:
+
+```tsx
+<Checkbox
+  style={{
+    borderColor: 'secondary',
+    Checkbox_Indicator: { backgroundColor: 'secondary' },
+  }}
+/>
+```
+
+You can also apply styling to a component's children in the theme configuration:
+
+```ts
+const theme = {
+  ...,
+  components: {
+    Checkbox: {
+      default: {
+        borderColor: 'secondary',
+        Checkbox_Indicator: { backgroundColor: 'secondary' },
       },
     },
   },

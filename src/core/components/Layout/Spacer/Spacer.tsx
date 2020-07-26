@@ -1,12 +1,11 @@
 import React from 'react'
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 
-export const SSpacer = Stylish(
-  'div',
-  ({ theme, size = 'm', flexDirection = 'column' }: any) => ({
+export const SSpacer = styled.div(
+  ({ theme, size = 'm', style: { flexDirection = 'column' } = {} }: any) => ({
     display: 'flex',
-    flexDirection: 'column',
     width: '100%',
+    flexDirection,
 
     '> *': {
       ...(flexDirection === 'column' && {

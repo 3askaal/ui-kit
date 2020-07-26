@@ -1,14 +1,14 @@
 import React, { FC, ReactElement } from 'react'
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
 const ButtonReset: any = {
   backgroundColor: 'transparent',
   border: 0,
+  outline: 0,
   cursor: 'pointer',
 }
 
-export const SButton: any = Stylish(
-  'button',
+export const SButton: any = styled.button(
   {
     ...ButtonReset,
     display: 'inline-flex',
@@ -58,7 +58,7 @@ export const SButton: any = Stylish(
       pointerEvents: 'none',
     },
     isBlock: {
-      flexGrow: 1,
+      width: '100%',
     },
   },
 )

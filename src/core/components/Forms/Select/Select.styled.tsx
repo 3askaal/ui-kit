@@ -1,7 +1,7 @@
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 import { FormElementReset } from '..'
 
-export const SSelectWrapper = Stylish('div', {
+export const SSelectWrapper = styled.div({
   position: 'relative',
   display: 'flex',
   alignItems: 'center',
@@ -9,7 +9,7 @@ export const SSelectWrapper = Stylish('div', {
   cursor: 'pointer',
 })
 
-export const SSelect = Stylish('select', ({ theme }: any) => ({
+export const SSelect = styled.select(({ theme }: any) => ({
   ...FormElementReset,
   cursor: 'pointer',
   paddingRight: `calc(${theme.space.s} + 24px)`,
@@ -29,7 +29,7 @@ export const SSelect = Stylish('select', ({ theme }: any) => ({
   },
 }))
 
-export const SSelectIcon = Stylish('div', {
+export const SSelectIcon = styled.div({
   position: 'absolute',
   display: 'flex',
   color: 'primary',

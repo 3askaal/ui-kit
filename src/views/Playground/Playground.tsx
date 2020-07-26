@@ -93,7 +93,9 @@ export const PlaygroundView = () => {
                 quidem facere eos, saepe doloribus. Aperiam, deserunt?
                 Distinctio quam vel animi nesciunt atque corporis?
               </p>
-              <a href="/example">Repellat pariatur hic quod</a>
+              <p>
+                <a href="/example">Repellat pariatur hic quod</a>
+              </p>
               <ul>
                 <li>Itaque dignissimos non magnam</li>
                 <li>Vitae excepturi ad iste</li>
@@ -135,7 +137,7 @@ export const PlaygroundView = () => {
           <Preview title="Checkbox">
             <Checkbox />
             <Checkbox isChecked />
-            <Checkbox isChecked disabled />
+            <Checkbox isChecked isDisabled />
             <Checkbox label="Checkbox with label" />
             <Checkbox isChecked label="Checked Checkbox with label" />
             <Checkbox

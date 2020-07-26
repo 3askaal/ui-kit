@@ -1,6 +1,6 @@
-import { Stylish } from '../../utils'
+import { styled } from '../../utils'
 
-export const SPopupWrapper = Stylish('div', {
+export const SPopupWrapper = styled.div({
   position: 'fixed',
   top: 0,
   left: 0,
@@ -13,7 +13,7 @@ export const SPopupWrapper = Stylish('div', {
   justifyContent: 'center',
 })
 
-export const SPopupCloser = Stylish('div', {
+export const SPopupCloser = styled.div({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -22,7 +22,7 @@ export const SPopupCloser = Stylish('div', {
   backgroundColor: 'overlay',
 })
 
-export const SPopup = Stylish('div', {
+export const SPopup = styled.div({
   position: 'relative',
   border: 'main',
   margin: '20px',
@@ -33,26 +33,26 @@ export const SPopup = Stylish('div', {
   maxWidth: '420px',
 })
 
-export const SPopupHeader = Stylish('div', {
+export const SPopupHeader = styled.div({
   display: 'flex',
   borderBottom: 'main',
   backgroundColor: 'primary',
   color: 'black',
 })
 
-export const SPopupHeaderContent = Stylish('div', {
+export const SPopupHeaderContent = styled.div({
   flexGrow: 1,
   padding: 's',
 })
 
-export const SPopupContent = Stylish('div', {
+export const SPopupContent = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   padding: 'm',
 })
 
-export const SPopupCloseButton = Stylish('div', {
+export const SPopupCloseButton = styled.div({
   padding: 's',
   cursor: 'pointer',
 })

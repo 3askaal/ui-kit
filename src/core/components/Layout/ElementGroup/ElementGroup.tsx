@@ -1,7 +1,7 @@
 import React from 'react'
-import { Stylish } from '../../../utils'
+import { styled } from '../../../utils'
 
-export const SElementGroup = Stylish('div', {
+export const SElementGroup = styled.div({
   display: 'flex',
   flexDirection: 'row',
 
