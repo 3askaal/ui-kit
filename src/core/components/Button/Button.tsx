@@ -63,6 +63,6 @@ export const SButton: any = styled.button(
   },
 )
 
-export const Button: FC<any> = ({ style, ...props }: any): ReactElement => {
-  return <SButton sRef="Button" {...style} {...props} />
+export const Button: FC<any> = (props: any): ReactElement => {
+  return <SButton sRef="Button" {...props} />
 }
