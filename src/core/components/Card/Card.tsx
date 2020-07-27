@@ -7,7 +7,6 @@ export const SCard = styled.div({
   overflow: 'hidden',
   border: 'main',
   borderColor: 'primary',
-  color: 'primary',
   borderRadius: 'm',
 })
 

@@ -4,7 +4,6 @@ export const SInput = styled.input(
   {
     display: 'flex',
     border: 'thick',
-    color: 'primary',
     borderColor: 'primary',
     borderRadius: 'm',
     padding: 's',

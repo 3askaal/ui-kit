@@ -120,7 +120,17 @@ export const PlaygroundView = () => {
           </Preview>
 
           <Preview title="Cards">
-            <Card>Card without header</Card>
+            <Card>
+              <Spacer>
+                <Text>Card without header</Text>
+                <Text>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
+                  voluptatem, debitis incidunt nesciunt non fuga perferendis
+                  exercitationem esse fugiat magnam culpa, nemo dolores
+                  voluptates error, corporis numquam! Vel, assumenda similique.
+                </Text>
+              </Spacer>
+            </Card>
             <Card header="Card Header">Card with header</Card>
           </Preview>
 
