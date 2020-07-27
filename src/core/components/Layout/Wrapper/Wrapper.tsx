@@ -7,6 +7,7 @@ export const SWrapper = styled.div({
   height: '100%',
   flexDirection: 'row',
   justifyContent: 'center',
+  padding: 'm',
 })
 
 export const Wrapper = (props: any) => {

@@ -21,7 +21,6 @@ export const App = () => {
               <Route exact path="/">
                 <PlaygroundView />
               </Route>
-              <Route path="/social/friends" />
             </Switch>
           </Router>
         </Wrapper>
