@@ -6,7 +6,7 @@ interface Colors {
 }
 
 const white: string = darken('white', 0.4)
-const black: string = brighten('black', 1)
+const black: string = brighten('black', 1.4)
 
 const primary: string = '#3e64ff'
 const primaryDark: string = darken(primary, 0.4)

@@ -14,7 +14,7 @@ const STitle = styled.h1(({ theme, level }: any) => ({
   fontFamily: theme.fonts.title || 'inherit',
   fontWeight: 'bold',
   fontSize: TitleSizes[level],
-  lineHeight: '1.25em',
+  lineHeight: 1.4,
 }))
 
 export const Title = ({ level = 3, ...props }: any) => {

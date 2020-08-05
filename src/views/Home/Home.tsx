@@ -16,7 +16,8 @@ export const HomeView = () => {
             <Logo />
             <Body s={{ textAlign: 'center' }}>
               <Title level={5}>
-                Extremely customizable React Component Library and Toolkit.
+                Extremely customizable Component Library
+                <br /> and Toolkit for React
               </Title>
               <Text>
                 Built with{' '}

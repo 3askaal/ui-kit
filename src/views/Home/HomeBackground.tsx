@@ -29,7 +29,7 @@ export const HomeBackground = () => {
   function genCol(minColWidth: number, maxColWidth: number) {
     const key: string = keyGen()
     const width: any = random(minColWidth, maxColWidth)
-    const color: any = sample(['#dfe2fe', '#b1cbfa', '#8e98f5', '#7874f2'])
+    const color: any = sample(['#dfe2fe', '#b1cbfa', '#8e98f5', '#7874f2']) //
     return { [key]: { width, color, key, ref: createRef() } }
   }
 
@@ -48,7 +48,11 @@ export const HomeBackground = () => {
   }
 
   useEffect(() => {
-    genCols(Math.round(windowWidth / 8), Math.round(windowWidth / 4))
+    if (windowWidth > 768) {
+      genCols(Math.round(windowWidth / 40), Math.round(windowWidth / 4))
+    } else {
+      genCols(Math.round(windowWidth / 12), Math.round(windowWidth / 4))
+    }
   }, [windowWidth])
 
   return (
