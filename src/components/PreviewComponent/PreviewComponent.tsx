@@ -1,11 +1,8 @@
 import React, { FC, ReactElement, useState } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import renderJsx from 'react-element-to-jsx-string'
-import { duotoneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Code } from '@components'
 import {
   SPreviewComponent,
   SPreviewComponentContent,
-  SPreviewComponentSource,
 } from './PreviewComponent.styled'
 
 export interface PreviewComponentProps {
@@ -48,16 +45,10 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({
       <SPreviewComponentContent>
         {handleOnChange(children)}
       </SPreviewComponentContent>
-      <SPreviewComponentSource>
-        <SyntaxHighlighter language="javascript" style={duotoneDark}>
-          {renderJsx(children)}
-        </SyntaxHighlighter>
-        {dataBinding !== null ? (
-          <SyntaxHighlighter language="javascript" style={duotoneDark}>
-            <>onChange &#61;&#62; {JSON.stringify(dataBinding)}</>
-          </SyntaxHighlighter>
-        ) : null}
-      </SPreviewComponentSource>
+      <Code>{children}</Code>
+      {dataBinding !== null ? (
+        <Code content={`onChange => ${JSON.stringify(dataBinding)}`} />
+      ) : null}
     </SPreviewComponent>
   )
 }

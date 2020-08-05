@@ -16,22 +16,3 @@ export const SPreviewComponentContent = styled.div({
     marginTop: 's',
   },
 })
-
-export const SPreviewComponentSource = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  backgroundColor: 'code',
-  fontFamily: 'code',
-  width: '100%',
-  lineHeight: 1.25,
-  overflow: 'auto',
-
-  '*': {
-    fontSize: '.8rem !important',
-  },
-
-  '> pre': {
-    margin: '0 !important',
-    padding: 's',
-  },
-})

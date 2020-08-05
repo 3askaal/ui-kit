@@ -1,0 +1,38 @@
+## Components With Children
+
+When you pass a string to the `third parameter` of your component definition:
+
+```tsx
+const CheckboxIndicator = styled.div(
+  ...defaultStyling,
+  ...variantStyling,
+  '_indicator'
+})
+```
+
+You can override styling of children with the `s` prop:
+
+```tsx
+<Checkbox
+  s={{
+    borderColor: 'secondary',
+    _indicator: { backgroundColor: 'secondary' },
+  }}
+/>
+```
+
+You can override styling of children elements in the theme:
+
+```ts
+const theme = {
+  ...,
+  components: {
+    Checkbox: {
+      defaults: {
+        backgroundColor: 'secondary',
+        _indicator: { backgroundColor: 'secondary' },
+      },
+    },
+  },
+}
+```

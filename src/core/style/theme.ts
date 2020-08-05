@@ -11,6 +11,7 @@ export const theme: any = {
     m: '1.25rem',
     l: '2.5rem',
     xl: '3.75rem',
+    xxl: '5rem',
   },
   durations: {
     s: '0.2s',
@@ -28,7 +29,7 @@ export const theme: any = {
     base: "'Source Sans Pro', Helvetica, Arial, sans-serif",
     title: "'Source Sans Pro', Helvetica, Arial, sans-serif",
     code: 'Consolas, Monaco, monospace, Arial, sans-serif',
-    logo: "'Lobster', Helvetica, Arial, sans-serif",
+    logo: "'Kaushan Script', Helvetica, Arial, sans-serif",
   },
   fontSizes: {
     xs: '0.8em',

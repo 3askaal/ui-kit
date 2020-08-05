@@ -3,7 +3,7 @@ import { styled } from '../../../utils'
 import { SCol } from '..'
 
 export const SRow = styled.div(
-  ({ theme, style: { flexWrap = 'wrap' } = {}, gutter = 'm' }: any) => ({
+  ({ theme, s: { flexWrap = 'wrap' } = {}, gutter = 'm' }: any) => ({
     display: 'flex',
     flexDirection: 'row',
     flexWrap,

@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from '../../../utils'
 
 export const SSpacer = styled.div(
-  ({ theme, size = 'm', style: { flexDirection = 'column' } = {} }: any) => ({
+  ({ theme, size = 'm', s: { flexDirection = 'column' } = {} }: any) => ({
     display: 'flex',
     width: '100%',
     flexDirection,

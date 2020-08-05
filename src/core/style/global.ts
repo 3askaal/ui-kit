@@ -34,5 +34,9 @@ export const GlobalStyle: any = createGlobalStyle<any>(({ theme }) => {
       display: 'flex',
       width: '100%',
     },
+
+    a: {
+      color: 'inherit',
+    },
   }
 })

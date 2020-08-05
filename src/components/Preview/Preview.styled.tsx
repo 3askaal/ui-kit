@@ -14,3 +14,7 @@ export const SPreview = styled.div(({ theme }) => ({
 export const SPreviewTitle = styled.div<any>(({ theme }) => ({
   marginBottom: theme.space.l,
 }))
+
+export const SPreviewDescription = styled.div<any>(({ theme }) => ({
+  marginBottom: theme.space.l,
+}))

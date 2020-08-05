@@ -4,7 +4,7 @@ function passStylePropsToChildren(child: any, style: any) {
   if (child && child.sRef && style[child.sRef]) {
     return {
       ...child,
-      style: style[child.sRef],
+      s: style[child.sRef],
     }
   }
 

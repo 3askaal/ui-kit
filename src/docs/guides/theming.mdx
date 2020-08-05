@@ -1,0 +1,33 @@
+## Theming
+
+Define a theme and pass it to the ThemeProvider.
+
+```ts live=true
+import { darken } from '3oilerplate'
+
+const theme = {
+  breakpoints: ['320px', '640px', '768px', '1024px', '1440px'],
+  space: {
+    xs: '0.5rem',
+    s: '0.75rem',
+    m: '1.25rem',
+    l: '2.5rem',
+    xl: '3.75rem',
+  },
+  colors: {
+    primary: '#3e64ff',
+    primaryDark: darken('#3e64ff', 0.25),
+    secondary: '#7c73e6',
+    secondaryDark: darken('#7c73e6', 0.25),
+  },
+  fonts: {
+    base: "'Source Sans Pro', Helvetica, Arial, sans-serif",
+    code: 'Consolas, Monaco, monospace, Arial, sans-serif',
+  },
+  radii: {
+    s: '0.125rem',
+    m: '0.25rem',
+    l: '0.5rem',
+  },
+}
+```

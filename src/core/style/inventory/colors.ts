@@ -5,7 +5,7 @@ interface Colors {
   [variant: string]: string
 }
 
-const white: string = darken('white', 0.2)
+const white: string = darken('white', 0.4)
 const black: string = brighten('black', 1)
 
 const primary: string = '#3e64ff'
@@ -34,7 +34,7 @@ export const colors: Colors = {
   primaryDark,
   secondary,
   secondaryDark,
-  code: '#eee',
+  code: 'rgb(42, 39, 52)',
   positive: mix('green', primary, 0.1),
   negative: mix('red', primary, 0.1),
 }

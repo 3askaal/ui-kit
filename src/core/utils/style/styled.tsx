@@ -18,7 +18,7 @@ export const styledWrapper = (
   variants?: any,
   sRef?: string,
 ) => {
-  const { theme, style: inlineStyles, sRef: sRefProp } = props
+  const { theme, s: inlineStyles, sRef: sRefProp } = props
   const styleFunctions: any[] = []
   const themeStyles = get(theme.components, sRef || sRefProp)
 
@@ -27,7 +27,7 @@ export const styledWrapper = (
   if (newProps.children) {
     newProps.children = resolveStylePropOnChildren(
       newProps.children,
-      newProps.style,
+      newProps.s,
     )
   }
 
@@ -36,7 +36,7 @@ export const styledWrapper = (
   }
 
   if (themeStyles && themeStyles.default) {
-    styleFunctions.push(css(themeStyles.default))
+    styleFunctions.push(resolveInputType(themeStyles.default, newProps))
   }
 
   const mergedVariants = deepmerge(
@@ -46,12 +46,12 @@ export const styledWrapper = (
 
   forOwn(mergedVariants, (variantStyle: any, variantKey: string) => {
     if (newProps[variantKey]) {
-      styleFunctions.push(css(variantStyle))
+      styleFunctions.push(resolveInputType(variantStyle, newProps))
     }
   })
 
   if (inlineStyles) {
-    styleFunctions.push(resolveInputType(inlineStyles, newProps))
+    styleFunctions.push(resolveInputType({ '&&&': inlineStyles }, newProps))
   }
 
   return styleFunctions

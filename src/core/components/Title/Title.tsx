@@ -7,13 +7,14 @@ const TitleSizes: { [key: string]: string } = {
   3: '2em',
   4: '1.5em',
   5: '1.25em',
-  6: '0.8em',
+  6: '1.125em',
 }
 
 const STitle = styled.h1(({ theme, level }: any) => ({
   fontFamily: theme.fonts.title || 'inherit',
   fontWeight: 'bold',
   fontSize: TitleSizes[level],
+  lineHeight: '1.25em',
 }))
 
 export const Title = ({ level = 3, ...props }: any) => {

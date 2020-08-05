@@ -5,9 +5,9 @@ export const SContainer = styled.div({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  flexGrow: 1,
+  // flexGrow: 1,
   width: '100%',
-  maxWidth: '800px',
+  maxWidth: '1200px',
 })
 
 export const Container = (props: any) => {

@@ -145,7 +145,7 @@ const theme = {
 Each component has a `style` prop you can pass inline styling to.
 
 ```tsx
-<Button style={{ backgroundColor: 'secondary' }} />
+<Button s={{ backgroundColor: 'secondary' }} />
 ```
 
 ### Components with children
@@ -156,7 +156,7 @@ You can apply inline styling to children of containing components:
 
 ```tsx
 <Checkbox
-  style={{
+  s={{
     borderColor: 'secondary',
     Checkbox_Indicator: { backgroundColor: 'secondary' },
   }}

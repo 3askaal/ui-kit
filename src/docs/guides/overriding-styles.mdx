@@ -1,0 +1,22 @@
+## Overriding Styles
+
+You can override styles inline with the `s` prop:
+
+```tsx
+<Button s={{ backgroundColor: 'secondary' }} />
+```
+
+You can also override the default styling in the theme configuration:
+
+```ts
+const theme = {
+  ...,
+  components: {
+    Button: {
+      defaults: {
+        backgroundColor: 'secondary',
+      },
+    },
+  },
+}
+```

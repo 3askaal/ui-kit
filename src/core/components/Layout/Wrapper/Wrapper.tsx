@@ -5,7 +5,7 @@ export const SWrapper = styled.div({
   display: 'flex',
   width: '100%',
   height: '100%',
-  padding: 's',
+  padding: 'm',
   flexDirection: 'row',
   justifyContent: 'center',
 })

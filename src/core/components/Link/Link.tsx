@@ -13,5 +13,5 @@ export const SLink = styled.a({
 })
 
 export const Link: FC<any> = ({ to, ...props }: any): ReactElement => {
-  return <SLink sRef="Link" href={to || '#'} {...props} />
+  return <SLink sRef="Link" href={to || null} {...props} />
 }

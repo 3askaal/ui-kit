@@ -26,6 +26,4 @@ export const SLabel = styled.div(
   },
 )
 
-export const Label = ({ style, ...props }: any) => (
-  <SLabel {...style} {...props} />
-)
+export const Label = ({ ...props }: any) => <SLabel {...props} />

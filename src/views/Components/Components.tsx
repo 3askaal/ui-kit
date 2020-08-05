@@ -17,19 +17,18 @@ import {
   Col,
   Box,
   Text,
-  Wrapper,
   Body,
   TextArea,
   Progress,
   ElementGroup,
 } from '@core'
-import { Preview } from '../../components'
+import { Preview, Section } from '../../components'
 
-export const PlaygroundView = () => {
+export const ComponentsView = () => {
   return (
-    <Wrapper>
-      <Container style={{ paddingTop: '300px' }}>
-        <Spacer>
+    <Container s={{ paddingTop: '100px' }}>
+      <Spacer>
+        <Section title="Grid">
           <Preview title="Grid (auto)">
             <Row>
               <Col>
@@ -60,8 +59,10 @@ export const PlaygroundView = () => {
               </Col>
             </Row>
           </Preview>
+        </Section>
 
-          <Preview title="Titles">
+        <Section title="Title">
+          <Preview>
             <Title level={1}>Title 1</Title>
             <Title level={2}>Title 2</Title>
             <Title level={3}>Title 3</Title>
@@ -69,14 +70,18 @@ export const PlaygroundView = () => {
             <Title level={5}>Title 5</Title>
             <Title level={6}>Title 6</Title>
           </Preview>
+        </Section>
 
-          <Preview title="Text">
+        <Section title="Text">
+          <Preview title="Regular">
             <Text>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
               voluptatem, debitis incidunt nesciunt non fuga perferendis
               exercitationem esse fugiat magnam culpa, nemo dolores voluptates
               error, corporis numquam! Vel, assumenda similique.
             </Text>
+          </Preview>
+          <Preview title="Small">
             <Text type="small">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Doloremque natus quas tenetur aliquid ullam corrupti cupiditate
@@ -84,8 +89,10 @@ export const PlaygroundView = () => {
               molestiae dolores nam! Doloribus, eum?
             </Text>
           </Preview>
+        </Section>
 
-          <Preview title="Body">
+        <Section title="Body">
+          <Preview>
             <Body>
               <p>
                 Lorem, ipsum dolor <a href="/example">sit amet consectetur</a>{' '}
@@ -104,37 +111,49 @@ export const PlaygroundView = () => {
               <Button>Sapiente officiis</Button>
             </Body>
           </Preview>
+        </Section>
 
-          <Preview title="Buttons">
+        <Section title="Button">
+          <Preview>
             <Button>Button</Button>
             <Button isSecondary>Secondary Button</Button>
             <Button isOutline>Outline Button</Button>
             <Button isDisabled>Disabled Button</Button>
             <Button isBlock>Block Button</Button>
           </Preview>
+        </Section>
 
-          <Preview title="Label">
+        <Section title="Label">
+          <Preview>
             <Label>Label</Label>
             <Label isSecondary>Secondary Label</Label>
             <Label isOutline>Outline Label</Label>
           </Preview>
+        </Section>
 
-          <Preview title="Cards">
+        <Section title="Card">
+          <Preview>
             <Card>Card without header</Card>
             <Card header="Card Header">Card with header</Card>
           </Preview>
+        </Section>
 
-          <Preview title="Input">
+        <Section title="Input">
+          <Preview>
             <Input />
             <Input isPositive value="For when value is correct" />
             <Input isNegative value="For when value is incorrect" />
           </Preview>
+        </Section>
 
-          <Preview title="TextArea">
+        <Section title="TextArea">
+          <Preview>
             <TextArea />
           </Preview>
+        </Section>
 
-          <Preview title="Checkbox">
+        <Section title="Checkbox">
+          <Preview>
             <Checkbox />
             <Checkbox isChecked />
             <Checkbox isChecked isDisabled />
@@ -146,8 +165,10 @@ export const PlaygroundView = () => {
               label="Checked disabled Checkbox with label"
             />
           </Preview>
+        </Section>
 
-          <Preview title="CheckboxGroup">
+        <Section title="CheckboxGroup">
+          <Preview>
             <CheckboxGroup
               options={[
                 { label: 'Option 1', value: 1 },
@@ -157,8 +178,10 @@ export const PlaygroundView = () => {
               ]}
             />
           </Preview>
+        </Section>
 
-          <Preview title="Select Field">
+        <Section title="SelectField">
+          <Preview>
             <Select
               options={[
                 { label: 'Option 1', value: 1 },
@@ -178,24 +201,32 @@ export const PlaygroundView = () => {
               ]}
             />
           </Preview>
+        </Section>
 
-          <Preview title="Progress">
+        <Section title="Progress">
+          <Preview>
             <Progress amount={40} />
           </Preview>
+        </Section>
 
-          <Preview title="Links">
+        <Section title="Link">
+          <Preview>
             <Link to="/location">Link</Link>
           </Preview>
+        </Section>
 
-          <Preview title="Lists">
+        <Section title="List">
+          <Preview>
             <List>
               <ListItem>List Item 1</ListItem>
               <ListItem>List Item 2</ListItem>
               <ListItem>List Item 3</ListItem>
             </List>
           </Preview>
+        </Section>
 
-          <Preview title="ElementGroup">
+        <Section title="ElementGroup">
+          <Preview>
             <ElementGroup>
               <Label>Label 1</Label>
               <Label isSecondary>Label 2</Label>
@@ -211,14 +242,14 @@ export const PlaygroundView = () => {
               <Input placeholder="Input" />
               <Button>Button</Button>
             </ElementGroup>
-            <ElementGroup style={{ '> *': { borderRadius: 'l' } }}>
+            <ElementGroup s={{ '> *': { borderRadius: 'l' } }}>
               <Label isOutline>Label</Label>
               <Input placeholder="Input" />
               <Button>Button</Button>
             </ElementGroup>
           </Preview>
-        </Spacer>
-      </Container>
-    </Wrapper>
+        </Section>
+      </Spacer>
+    </Container>
   )
 }

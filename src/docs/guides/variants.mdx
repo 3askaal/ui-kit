@@ -1,0 +1,56 @@
+## Variants
+
+Variants can be defined in the component declaration, with the `second parameter`:
+
+```ts
+import { styled } from '3oilerplate'
+
+const Button = styled.button({
+    backgroundColor: 'primary',
+    color: 'white',
+
+    ':hover': {
+      backgroundColor: 'primaryDark',
+    },
+  },
+  {
+    secondary: {
+      backgroundColor: 'secondary',
+
+      ':hover': {
+        backgroundColor: 'secondaryDark',
+      }
+    }
+  }
+})
+```
+
+but also in the theme configuration:
+
+```ts
+const theme = {
+  ...,
+  components: {
+    Button: {
+      defaults: {
+        backgroundColor: 'secondary',
+      },
+      variants: {
+        secondary: {
+          backgroundColor: 'secondary',
+
+          ':hover': {
+            backgroundColor: 'secondaryDark',
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Variants are applied when you pass a prop with a true value that matches the name of a variant.
+
+```tsx
+<Button secondary />
+```

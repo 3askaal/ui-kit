@@ -6,7 +6,8 @@ export const SCol = styled.div(({ width }: any) => ({
   display: 'flex',
   flexDirection: 'column',
   flexGrow: 1,
-  flexShrink: 0,
+  overflow: 'hidden',
+  flexShrink: 1,
   flexBasis: width,
 }))
 

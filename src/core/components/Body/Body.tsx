@@ -2,7 +2,10 @@ import React from 'react'
 import { styled } from '../../utils'
 
 export const SBody = styled.div({
-  'p, li': {
+  display: 'flex',
+  flexDirection: 'column',
+
+  '> *': {
     lineHeight: 1.6,
   },
 
@@ -21,10 +24,6 @@ export const SBody = styled.div({
 
   '> * + *': {
     marginTop: 'm',
-  },
-
-  'span + span': {
-    marginLeft: 'xxs',
   },
 })
 

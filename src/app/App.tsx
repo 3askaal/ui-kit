@@ -1,12 +1,14 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { MDXProvider } from '@mdx-js/react'
 import { createBrowserHistory } from 'history'
 import { Route, Router, Switch } from 'react-router-dom'
-import { Wrapper, FormResetStyle, GlobalStyle, theme } from '@core'
-import { PlaygroundView } from '../views/Playground/Playground'
+import { FormResetStyle, GlobalStyle, theme } from '@core'
+import { MdxComponents } from '../config/mdx'
+import { HomeView, GuidesView, ComponentsView } from '../views'
 import { SApp } from './App.styled'
 import './fonts.css'
-import { Sidebar } from '../components'
+import { SiteWrapper } from '../components'
 
 const history = createBrowserHistory()
 
@@ -17,17 +19,21 @@ export default () => {
         <GlobalStyle />
         <FormResetStyle />
         <Router history={history}>
-          <Sidebar />
-          <Wrapper>
-            <Switch>
-              <Route exact path="/getting-started">
-                <PlaygroundView />
-              </Route>
-              <Route exact path="/components">
-                <PlaygroundView />
-              </Route>
-            </Switch>
-          </Wrapper>
+          <MDXProvider components={MdxComponents}>
+            <SiteWrapper>
+              <Switch>
+                <Route exact path="/">
+                  <HomeView />
+                </Route>
+                <Route exact path="/guides">
+                  <GuidesView />
+                </Route>
+                <Route exact path="/components">
+                  <ComponentsView />
+                </Route>
+              </Switch>
+            </SiteWrapper>
+          </MDXProvider>
         </Router>
       </SApp>
     </ThemeProvider>
