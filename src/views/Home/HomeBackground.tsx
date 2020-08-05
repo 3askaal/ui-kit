@@ -1,38 +1,55 @@
-import React, { useEffect, useState, createRef } from 'react'
+import React, { useEffect, useState, createRef, useLayoutEffect } from 'react'
 import { Row, Col, Box, rgba } from '@core'
-import { random, sample, times } from 'lodash'
+import { random, sample, times, debounce } from 'lodash'
 import { SHomeBackground } from './Home.styled'
 import { keyGen } from '../../core'
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0])
+
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight])
+    }
+
+    updateSize()
+    window.addEventListener('resize', debounce(updateSize, 200))
+
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
+
+  return size
+}
+
 export const HomeBackground = () => {
   const [cols, setCols] = useState<any>({})
-  const windowWidth = window.innerWidth
-  const minColWidth = 80
-  const maxColWidth = 200
+  const [windowWidth] = useWindowSize()
   const colHeight = 4.6
-  const amountCols =
-    Math.round(100 / colHeight) * Math.round(windowWidth / minColWidth)
 
-  function genCol() {
+  function genCol(minColWidth: number, maxColWidth: number) {
     const key: string = keyGen()
     const width: any = random(minColWidth, maxColWidth)
     const color: any = sample(['#dfe2fe', '#b1cbfa', '#8e98f5', '#7874f2'])
     return { [key]: { width, color, key, ref: createRef() } }
   }
 
-  function genCols() {
+  function genCols(minColWidth: number, maxColWidth: number) {
+    console.log(minColWidth)
+    console.log(maxColWidth)
     let generatedCols: any = {}
+    const amountCols =
+      Math.round(100 / colHeight) * Math.round(windowWidth / minColWidth)
 
     times(amountCols, () => {
-      generatedCols = { ...generatedCols, ...genCol() }
+      generatedCols = { ...generatedCols, ...genCol(minColWidth, maxColWidth) }
     })
 
     setCols(generatedCols)
   }
 
   useEffect(() => {
-    genCols()
-  }, [])
+    genCols(Math.round(windowWidth / 8), Math.round(windowWidth / 4))
+  }, [windowWidth])
 
   return (
     <SHomeBackground>
@@ -40,7 +57,7 @@ export const HomeBackground = () => {
         {Object.keys(cols).map((key: string) => {
           const col = cols[key]
           return (
-            <Col width={`${col.width}`} s={{ minWidth: col.width }}>
+            <Col s={{ minWidth: col.width }}>
               <Box
                 s={{
                   paddingY: 's',
