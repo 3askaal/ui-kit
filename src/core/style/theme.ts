@@ -1,8 +1,8 @@
 import { colors, palette, presets, states } from '.'
 
 export const theme: any = {
-  breakpoints: ['320px', '420px', '640px', '768px', '1024px', '1440px'],
-  rootFontSizes: ['8px', '12px', '14px', '16px'],
+  breakpoints: ['576px', '768px', '992px', '1200px'],
+  rootFontSizes: ['12px', '14px', '16px'],
   space: {
     xxxs: '0.2rem',
     xxs: '0.25rem',
@@ -29,7 +29,6 @@ export const theme: any = {
     base: "'Source Sans Pro', Helvetica, Arial, sans-serif",
     title: "'Source Sans Pro', Helvetica, Arial, sans-serif",
     code: 'Consolas, Monaco, monospace, Arial, sans-serif',
-    logo: "'Kaushan Script', Helvetica, Arial, sans-serif",
   },
   fontSizes: {
     xs: '0.8em',

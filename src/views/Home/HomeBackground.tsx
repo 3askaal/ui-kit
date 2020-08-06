@@ -34,8 +34,6 @@ export const HomeBackground = () => {
   }
 
   function genCols(minColWidth: number, maxColWidth: number) {
-    console.log(minColWidth)
-    console.log(maxColWidth)
     let generatedCols: any = {}
     const amountCols =
       Math.round(100 / colHeight) * Math.round(windowWidth / minColWidth)

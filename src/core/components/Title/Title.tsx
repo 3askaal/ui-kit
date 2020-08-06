@@ -2,12 +2,12 @@ import React from 'react'
 import { styled } from '../../utils'
 
 const TitleSizes: { [key: string]: string } = {
-  1: '3em',
-  2: '2.5em',
-  3: '2em',
-  4: '1.5em',
-  5: '1.25em',
-  6: '1.125em',
+  1: '2.5em',
+  2: '2em',
+  3: '1.5em',
+  4: '1.25em',
+  5: '1.125em',
+  6: '1em',
 }
 
 const STitle = styled.h1(({ theme, level }: any) => ({

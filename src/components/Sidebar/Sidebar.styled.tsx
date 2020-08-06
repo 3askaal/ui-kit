@@ -5,7 +5,6 @@ export const SSidebar = styled.div(({ isOpen }: any) => ({
   display: 'flex',
   flexDirection: 'column',
   width: '260px',
-  overflowY: 'scroll',
   flexShrink: 0,
   left: 0,
   top: 0,
@@ -25,6 +24,10 @@ export const SSidebar = styled.div(({ isOpen }: any) => ({
     textDecoration: 'none',
   },
 }))
+
+export const SSidebarContent = styled.div({
+  overflowY: 'scroll',
+})
 
 export const SSidebarToggle = styled.button({
   display: ['flex', null, null, null, 'none'],

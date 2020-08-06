@@ -21,7 +21,7 @@ export const SiteWrapper = ({ children }: any) => {
       ) : (
         <Wrapper
           s={{
-            px: 'l',
+            px: ['m', null, null, null, 'l'],
             overflow: 'hidden',
             maxWidth: !atHome && '800px',
             marginLeft: [0, null, null, null, '260px'],
