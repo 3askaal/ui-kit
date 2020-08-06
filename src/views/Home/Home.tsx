@@ -15,7 +15,7 @@ export const HomeView = () => {
           <Spacer size="l" s={{ alignItems: 'center' }}>
             <Logo />
             <Body s={{ textAlign: 'center' }}>
-              <Title level={5}>
+              <Title level={4}>
                 Extremely customizable Component Library
                 <br /> and Toolkit for React
               </Title>
