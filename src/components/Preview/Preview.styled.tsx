@@ -1,12 +1,12 @@
-import styled from 'styled-components'
+import { styled } from '@core'
 
-export const SPreview = styled.div(({ theme }) => ({
+export const SPreview = styled.div(({ theme }: any) => ({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
-  marginBottom: theme.space.l,
+  marginBottom: 'l',
 
   ':first-child': {
-    marginBottom: theme.space.s,
+    marginBottom: 's',
   },
 }))

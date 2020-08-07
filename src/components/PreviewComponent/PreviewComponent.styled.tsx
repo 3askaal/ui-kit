@@ -3,7 +3,7 @@ import { styled } from '@core'
 export const SPreviewComponent = styled.div({
   marginBottom: 'l',
   border: 'main',
-  borderColor: 'grey10',
+  borderColor: 'grey30',
   borderRadius: 'm',
 })
 
