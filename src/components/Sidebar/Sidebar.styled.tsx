@@ -48,7 +48,7 @@ export const SSidebarToggle = styled.button({
 
 export const SSidebarCloser = styled.div(({ theme }: any) => ({
   backgroundColor: rgba(theme.colors.black, 0.25),
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
   right: 0,
