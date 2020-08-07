@@ -14,15 +14,6 @@ export const SCheckbox = styled.div({
   borderColor: 'currentColor',
   borderRadius: 'm',
   padding: 'xxs',
-
-  // '@media (hover: hover)': {
-  //   ':hover': {
-  //     '> *': {
-  //       opacity: 0.5,
-  //       backgroundColor: 'primary',
-  //     },
-  //   },
-  // },
 })
 
 export const SCheckboxIndicator = styled.div(
@@ -36,15 +27,24 @@ export const SCheckboxIndicator = styled.div(
       backgroundColor: 'currentColor',
     },
   },
+  '_indicator',
 )
 
-export const SCheckboxInput = styled.input({
-  display: 'none',
-})
+export const SCheckboxInput = styled.input(
+  {
+    display: 'none',
+  },
+  {},
+  '_input',
+)
 
-export const SCheckboxLabel = styled.div({
-  marginLeft: 's',
-})
+export const SCheckboxLabel = styled.div(
+  {
+    marginLeft: 's',
+  },
+  {},
+  '_label',
+)
 
 export const SCheckboxWrapper = styled.label(
   {

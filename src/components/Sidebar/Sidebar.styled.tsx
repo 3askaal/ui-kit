@@ -1,10 +1,12 @@
 import { styled } from '@core'
+import { rgba } from '../../core'
 
 export const SSidebar = styled.div(({ isOpen }: any) => ({
   position: 'fixed',
   display: 'flex',
   flexDirection: 'column',
   width: '260px',
+  maxWidth: '70%',
   flexShrink: 0,
   left: 0,
   top: 0,
@@ -17,7 +19,7 @@ export const SSidebar = styled.div(({ isOpen }: any) => ({
     'translateX(0%)',
   ],
   backgroundColor: 'grey10',
-  zIndex: 100,
+  zIndex: 200,
   transition: 'all .25s ease',
 
   a: {
@@ -36,10 +38,20 @@ export const SSidebarToggle = styled.button({
   justifyContent: 'center',
   left: '100%',
   top: 0,
-  width: '40px',
-  height: '40px',
+  width: '2.8rem',
+  height: '2.8rem',
   margin: 's',
   cursor: 'pointer',
   borderRadius: 's',
   backgroundColor: 'grey10',
 })
+
+export const SSidebarCloser = styled.div(({ theme }: any) => ({
+  backgroundColor: rgba(theme.colors.black, 0.25),
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  zIndex: 100,
+}))

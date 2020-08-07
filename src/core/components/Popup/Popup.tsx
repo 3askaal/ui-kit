@@ -1,6 +1,4 @@
 import React, { ReactElement, FC, useState } from 'react'
-// import { X as XIcon } from 'react-feather'
-// import { Body } from '..'
 import { SPopupWrapper, SPopupCloser, SPopup } from './Popup.styled'
 
 export interface PopupProps {
