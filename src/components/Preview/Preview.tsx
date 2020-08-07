@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
 import { keyGen, Title } from '@core'
 import { PreviewComponent } from '@components'
-import { SPreview, SPreviewTitle } from './Preview.styled'
+import { SPreview } from './Preview.styled'
 
 export interface PreviewProps {
   title?: string
@@ -16,9 +16,11 @@ export const Preview: FC<PreviewProps> = ({
 }: PreviewProps): ReactElement => {
   return (
     <SPreview>
-      <SPreviewTitle>
-        {title ? <Title level={4}>{title}</Title> : null}
-      </SPreviewTitle>
+      {title ? (
+        <Title level={4} s={{ mb: 'l' }}>
+          {title}
+        </Title>
+      ) : null}
       {children.length ? (
         children.map((child: any) => (
           <PreviewComponent key={keyGen()}>{child}</PreviewComponent>

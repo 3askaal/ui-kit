@@ -12,7 +12,7 @@ export interface PreviewComponentProps {
 export const PreviewComponent: FC<PreviewComponentProps> = ({
   children,
 }: PreviewComponentProps): ReactElement => {
-  const [dataBinding, setDataBinding] = useState<string | boolean>('')
+  const [dataBinding, setDataBinding] = useState<any>(null)
 
   function handleOnChange(child: any) {
     const newChild: any = {
@@ -47,7 +47,10 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({
       </SPreviewComponentContent>
       <Code>{children}</Code>
       {dataBinding !== null ? (
-        <Code content={`onChange => ${JSON.stringify(dataBinding)}`} />
+        <Code
+          content={`onChange => ${JSON.stringify(dataBinding)}`}
+          s={{ mt: 's' }}
+        />
       ) : null}
     </SPreviewComponent>
   )

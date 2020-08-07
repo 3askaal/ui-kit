@@ -17,7 +17,7 @@ export const Sidebar: FC<any> = (props: any): ReactElement => {
         <SSidebarToggle onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size="1.4rem" /> : <Menu size="1.4rem" />}
         </SSidebarToggle>
-        <SSidebarContent>
+        <SSidebarContent onClick={() => setIsOpen(!isOpen)}>
           <Nav to="/">Home</Nav>
           <Nav
             to="/guides"
