@@ -5,8 +5,4 @@ export const SPreview = styled.div(({ theme }: any) => ({
   flexDirection: 'column',
   width: '100%',
   marginBottom: 'l',
-
-  ':first-child': {
-    marginBottom: 's',
-  },
 }))
