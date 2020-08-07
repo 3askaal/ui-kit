@@ -26,7 +26,7 @@ import { Preview, Section } from '../../components'
 
 export const ComponentsView = () => {
   return (
-    <Container s={{ paddingTop: '100px' }}>
+    <Container s={{ paddingY: 'l' }}>
       <Spacer>
         <Section title="Grid">
           <Preview title="Grid (auto)">
