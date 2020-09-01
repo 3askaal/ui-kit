@@ -59,7 +59,7 @@ export const HomeBackground = () => {
         {Object.keys(cols).map((key: string) => {
           const col = cols[key]
           return (
-            <Col s={{ minWidth: col.width }}>
+            <Col s={{ minWidth: col.width }} key={key}>
               <Box
                 s={{
                   paddingY: 's',
