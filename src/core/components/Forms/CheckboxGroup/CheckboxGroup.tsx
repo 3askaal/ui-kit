@@ -20,21 +20,18 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     const newItems = [...items]
     newItems[index].isChecked = value
     setItems(newItems)
-    if (onChange) onChange(map(filter(options, 'checked'), 'value'))
+    if (onChange) onChange(map(filter(options, 'isChecked'), 'value'))
   }
 
   return (
-    <SCheckboxGroup sRef="CheckboxGroup">
-      {(items &&
-        items.length &&
-        items.map((checkboxProps: any, index: number) => (
-          <Checkbox
-            {...checkboxProps}
-            onChange={(value: boolean) => onChangeHandler(value, index)}
-            key={keyGen()}
-          />
-        ))) ||
-        null}
+    <SCheckboxGroup sRef="CheckboxGroup" data-testid="checkbox-group">
+      {items.map((checkboxProps: any, index: number) => (
+        <Checkbox
+          {...checkboxProps}
+          onChange={(value: boolean) => onChangeHandler(value, index)}
+          key={keyGen()}
+        />
+      )) || null}
     </SCheckboxGroup>
   )
 }

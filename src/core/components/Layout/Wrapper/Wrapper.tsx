@@ -11,5 +11,5 @@ export const SWrapper = styled.div({
 })
 
 export const Wrapper = (props: any) => {
-  return <SWrapper sRef="Wrapper" {...props} />
+  return <SWrapper sRef="Wrapper" {...props} data-testid="wrapper" />
 }

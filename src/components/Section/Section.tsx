@@ -12,7 +12,11 @@ export const Section = ({ children, title, ...props }: any) => {
   return (
     <SSection {...props}>
       {title && (
-        <Title s={{ mb: 'l' }} id={kebabCase(title)}>
+        <Title
+          s={{ mb: 'l' }}
+          id={kebabCase(title)}
+          data-testid="section-title"
+        >
           {title}
         </Title>
       )}

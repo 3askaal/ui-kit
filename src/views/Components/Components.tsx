@@ -26,7 +26,7 @@ import { Preview, Section } from '../../components'
 
 export const ComponentsView = () => {
   return (
-    <Container s={{ paddingY: 'xxl' }}>
+    <Container s={{ paddingY: 'xxl' }} data-testid="components-view">
       <Spacer>
         <Section title="Grid">
           <Preview title="Grid (auto)">

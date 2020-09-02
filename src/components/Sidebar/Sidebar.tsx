@@ -13,11 +13,17 @@ export const Sidebar: FC<any> = (props: any): ReactElement => {
 
   return (
     <>
-      <SSidebar {...props} isOpen={isOpen}>
-        <SSidebarToggle onClick={() => setIsOpen(!isOpen)}>
+      <SSidebar {...props} isOpen={isOpen} data-testid="sidebar">
+        <SSidebarToggle
+          onClick={() => setIsOpen(!isOpen)}
+          data-testid="sidebar-toggle"
+        >
           {isOpen ? <X size="1.4rem" /> : <Menu size="1.4rem" />}
         </SSidebarToggle>
-        <SSidebarContent onClick={() => setIsOpen(!isOpen)}>
+        <SSidebarContent
+          onClick={() => setIsOpen(!isOpen)}
+          data-testid="sidebar-content"
+        >
           <Nav to="/">Home</Nav>
           <Nav
             to="/guides"
@@ -57,7 +63,12 @@ export const Sidebar: FC<any> = (props: any): ReactElement => {
           </Nav>
         </SSidebarContent>
       </SSidebar>
-      {isOpen ? <SSidebarCloser onClick={() => setIsOpen(!isOpen)} /> : null}
+      {isOpen ? (
+        <SSidebarCloser
+          onClick={() => setIsOpen(!isOpen)}
+          data-testid="sidebar-closer"
+        />
+      ) : null}
     </>
   )
 }

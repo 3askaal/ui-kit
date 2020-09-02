@@ -32,20 +32,21 @@ export const Checkbox: FC<CheckboxProps> = ({
   }
 
   return (
-    <SCheckboxWrapper sRef="Checkbox_Wrapper" isDisabled={isDisabled}>
-      <SCheckbox sRef="Checkbox" {...props}>
+    <SCheckboxWrapper
+      sRef="Checkbox_Wrapper"
+      isDisabled={isDisabled}
+      data-testid="checkbox-label"
+    >
+      <SCheckbox sRef="Checkbox">
         <SCheckboxInput
           sRef="Checkbox_Input"
           type="checkbox"
           onChange={onChangeHandler}
           checked={isChecked}
+          data-testid="checkbox"
           {...props}
         />
-        <SCheckboxIndicator
-          sRef="Checkbox_Indicator"
-          isChecked={isChecked}
-          {...props}
-        >
+        <SCheckboxIndicator sRef="Checkbox_Indicator" isChecked={isChecked}>
           {icon || null}
         </SCheckboxIndicator>
       </SCheckbox>

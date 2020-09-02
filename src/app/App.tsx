@@ -1,17 +1,13 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import { MDXProvider } from '@mdx-js/react'
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import { FormResetStyle, GlobalStyle, theme } from '@core'
-import { MdxComponents } from '../config/mdx.config'
-import { HomeView, GuidesView, ComponentsView } from '../views'
-import { SApp } from './App.styled'
+import { theme } from '@core'
 import './fonts.css'
 import { SiteWrapper } from '../components'
+import { AppWrapper } from './AppWrapper'
+import { Routes } from './Routes'
 
 export default () => {
   return (
-    <ThemeProvider
+    <AppWrapper
       theme={{
         ...theme,
         breakpoints: ['320px', '420px', '640px', '768px', '1024px', '1440px'],
@@ -22,27 +18,9 @@ export default () => {
         },
       }}
     >
-      <SApp>
-        <GlobalStyle />
-        <FormResetStyle />
-        <BrowserRouter>
-          <MDXProvider components={MdxComponents}>
-            <SiteWrapper>
-              <Switch>
-                <Route exact path="/">
-                  <HomeView />
-                </Route>
-                <Route exact path="/guides">
-                  <GuidesView />
-                </Route>
-                <Route exact path="/components">
-                  <ComponentsView />
-                </Route>
-              </Switch>
-            </SiteWrapper>
-          </MDXProvider>
-        </BrowserRouter>
-      </SApp>
-    </ThemeProvider>
+      <SiteWrapper>
+        <Routes />
+      </SiteWrapper>
+    </AppWrapper>
   )
 }

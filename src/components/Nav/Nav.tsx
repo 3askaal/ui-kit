@@ -24,6 +24,7 @@ export const Nav = ({ to, children, items }: any) => {
         </Link>
         {items ? (
           <Box
+            data-testid="nav-open-trigger"
             onClick={() => setIsOpen(!isOpen)}
             s={{
               py: 's',
@@ -45,7 +46,11 @@ export const Nav = ({ to, children, items }: any) => {
       </ListItem>
       {isOpen && items
         ? items.map(({ to: itemTo, content, disabled }: any) => (
-            <ListItem s={{ border: 0, marginLeft: 'xs' }} disabled={disabled}>
+            <ListItem
+              s={{ border: 0, marginLeft: 'xs' }}
+              disabled={disabled}
+              data-testid="nav-sub-item"
+            >
               {itemTo ? (
                 <Link
                   to={to + itemTo}

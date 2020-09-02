@@ -17,17 +17,15 @@ export const Preview: FC<PreviewProps> = ({
   return (
     <SPreview>
       {title ? (
-        <Title level={4} s={{ mb: 'l' }}>
+        <Title level={4} s={{ mb: 'l' }} data-testid="preview-title">
           {title}
         </Title>
       ) : null}
-      {children.length ? (
-        children.map((child: any) => (
-          <PreviewComponent key={keyGen()}>{child}</PreviewComponent>
-        ))
-      ) : (
-        <PreviewComponent>{children}</PreviewComponent>
-      )}
+      {(children.length ? children : [children]).map((child: any) => (
+        <PreviewComponent key={keyGen()} data-testid="preview-component">
+          {child}
+        </PreviewComponent>
+      ))}
     </SPreview>
   )
 }

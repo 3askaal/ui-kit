@@ -4,7 +4,7 @@ import Guides from '../../docs/guides/index.mdx'
 
 export const GuidesView = () => {
   return (
-    <Container s={{ paddingY: 'xxl' }}>
+    <Container s={{ paddingY: 'xxl' }} data-testid="guides-view">
       <Spacer size="xxl" s={{ alignItems: 'center' }}>
         <Guides />
       </Spacer>

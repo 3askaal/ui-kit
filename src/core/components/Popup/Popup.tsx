@@ -16,12 +16,13 @@ export const Popup: FC<PopupProps> = ({
   return (
     <>
       {isOpen && (
-        <SPopupWrapper>
+        <SPopupWrapper data-testid="popup">
           <SPopupCloser
             onClick={() => {
               setIsOpen(false)
               onClose()
             }}
+            data-testid="popup-closer"
           />
           <SPopup>
             {/* <SPopupHeader>

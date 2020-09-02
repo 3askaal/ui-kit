@@ -65,12 +65,18 @@ export const Select: FC<SelectProps> = ({
         multiple={multiple}
         onChange={onSelectChange}
         value={currentValue}
+        data-testid="select"
       >
-        {options.map((option: SelectOptionProps) => (
-          <option value={option.value} key={keyGen()}>
-            {option.label}
-          </option>
-        ))}
+        {options &&
+          options.map((option: SelectOptionProps) => (
+            <option
+              value={option.value}
+              key={keyGen()}
+              data-testid="select-option"
+            >
+              {option.label}
+            </option>
+          ))}
       </SSelect>
       <SSelectIcon sRef="SelectIcon">
         <ChevronDownIcon />

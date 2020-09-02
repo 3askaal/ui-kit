@@ -40,6 +40,7 @@ export const TextArea: FC<any> = ({
       ref={TextAreaRef}
       {...props}
       onChange={(e: any) => onChange(e.target.value)}
+      data-testid="textarea"
     />
   )
 }

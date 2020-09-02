@@ -6,7 +6,7 @@ import { HomeBackground } from './HomeBackground'
 
 export const HomeView = () => {
   return (
-    <SHome>
+    <SHome data-testid="home-view">
       <HomeBackground />
       <Container
         s={{ paddingX: 'm', maxWidth: 'auto', justifyContent: 'center' }}
