@@ -5,7 +5,7 @@ import { Routes } from './Routes'
 describe('Sitewrapper', () => {
   test('renders components view', () => {
     const { queryByTestId } = render(<Routes />, {
-      initialEntries: ['/'],
+      history: ['/'],
     })
 
     expect(queryByTestId('home-view')).toBeTruthy()
@@ -13,7 +13,7 @@ describe('Sitewrapper', () => {
 
   test('renders components view', () => {
     const { queryByTestId } = render(<Routes />, {
-      initialEntries: ['/components'],
+      history: ['/components'],
     })
 
     expect(queryByTestId('components-view')).toBeTruthy()
@@ -21,7 +21,7 @@ describe('Sitewrapper', () => {
 
   test('renders guides view', () => {
     const { queryByTestId } = render(<Routes />, {
-      initialEntries: ['/guides'],
+      history: ['/guides'],
     })
 
     expect(queryByTestId('guides-view')).toBeTruthy()

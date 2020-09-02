@@ -6,11 +6,11 @@ import { AppWrapper } from '../app/AppWrapper'
 
 export default (
   ui: any,
-  { initialEntries, theme: mockedTheme, ...options }: any = {},
+  { history, theme: mockedTheme, ...options }: any = {},
 ) =>
   render(
     <AppWrapper theme={{ ...theme, ...mockedTheme }}>
-      <MemoryRouter initialEntries={initialEntries} initialIndex={0}>
+      <MemoryRouter initialEntries={history} initialIndex={0}>
         {ui}
       </MemoryRouter>
     </AppWrapper>,

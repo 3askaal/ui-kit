@@ -10,7 +10,7 @@ describe('Sitewrapper', () => {
 
   test('has sidebar & wrapper', () => {
     const { queryByTestId } = render(<SiteWrapper />, {
-      initialEntries: ['/guides'],
+      history: ['/guides'],
     })
 
     expect(queryByTestId('sidebar')).toBeTruthy()

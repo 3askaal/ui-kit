@@ -4,35 +4,35 @@ import { render } from '@tests'
 
 describe('styled', () => {
   test('with default styles', () => {
-    const Element = styled.button({
+    const StyledEl = styled.button({
       color: 'red',
     })
 
-    const { queryByTestId } = render(<Element data-testid="styled" />)
+    const { queryByTestId } = render(<StyledEl data-testid="styled" />)
     const style = getComputedStyle(queryByTestId('styled'))
     expect(style.color).toBe('red')
   })
 
   test('with variant styles', () => {
-    const Element = styled.div(
+    const StyledEl = styled.div(
       {
         color: 'red',
       },
       { isBlue: { color: 'blue' } },
     )
 
-    const { queryByTestId } = render(<Element isBlue data-testid="styled" />)
+    const { queryByTestId } = render(<StyledEl isBlue data-testid="styled" />)
     const style = getComputedStyle(queryByTestId('styled'))
     expect(style.color).toBe('blue')
   })
 
   test('overriding styles inline', () => {
-    const Element = styled.button({
+    const StyledEl = styled.button({
       color: 'red',
     })
 
     const { queryByTestId } = render(
-      <Element data-testid="styled" s={{ color: 'green' }} />,
+      <StyledEl data-testid="styled" s={{ color: 'green' }} />,
     )
 
     const style = getComputedStyle(queryByTestId('styled'))
@@ -40,7 +40,7 @@ describe('styled', () => {
   })
 
   test('overriding default styled from theme', () => {
-    const Element = styled.button(
+    const StyledEl = styled.button(
       {
         color: 'red',
       },
@@ -48,7 +48,7 @@ describe('styled', () => {
       'Button',
     )
 
-    const { queryByTestId } = render(<Element data-testid="styled" />, {
+    const { queryByTestId } = render(<StyledEl data-testid="styled" />, {
       theme: {
         components: {
           Button: {
@@ -65,7 +65,7 @@ describe('styled', () => {
   })
 
   test('adding and applying variants from the theme', () => {
-    const Element = styled.button(
+    const StyledEl = styled.button(
       {
         color: 'red',
       },
@@ -73,7 +73,7 @@ describe('styled', () => {
       'Button',
     )
 
-    const { queryByTestId } = render(<Element data-testid="styled" isCyan />, {
+    const { queryByTestId } = render(<StyledEl data-testid="styled" isCyan />, {
       theme: {
         components: {
           Button: {
