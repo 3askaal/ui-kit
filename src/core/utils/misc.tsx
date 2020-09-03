@@ -1,5 +1,5 @@
-import shortid from 'shortid'
+import uniqid from 'uniqid'
 
-export function keyGen() {
-  return shortid.generate()
+export function keyGen(value?: any) {
+  return uniqid(value)
 }

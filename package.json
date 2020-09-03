@@ -25,6 +25,7 @@
     "@types/shortid": "^0.0.29",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
+    "@types/uniqid": "^5.2.0",
     "babel-loader": "^8.1.0",
     "chroma-js": "^2.1.0",
     "customize-cra": "^1.0.0",
@@ -49,7 +50,8 @@
     "reset-css": "^5.0.1",
     "shortid": "^2.2.15",
     "styled-components": "^5.1.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "uniqid": "^5.2.0"
   },
   "scripts": {
     "start": "react-app-rewired start",

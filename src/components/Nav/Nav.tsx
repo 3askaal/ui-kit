@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ChevronDown } from 'react-feather'
 import { useLocation } from 'react-router-dom'
-import { List, ListItem, Box, Link } from '../../core'
+import { List, ListItem, Box, Link, keyGen } from '../../core'
 
 export const Nav = ({ to, children, items }: any) => {
   const [isOpen, setIsOpen] = useState(true)
@@ -49,6 +49,7 @@ export const Nav = ({ to, children, items }: any) => {
             <ListItem
               s={{ border: 0, marginLeft: 'xs' }}
               disabled={disabled}
+              key={keyGen(content)}
               data-testid="nav-sub-item"
             >
               {itemTo ? (

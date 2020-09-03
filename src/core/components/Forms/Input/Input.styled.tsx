@@ -9,6 +9,7 @@ export const SInput = styled.input(
     borderRadius: 'm',
     padding: 's',
     backgroundColor: 'transparent',
+    width: 'auto !important',
 
     ':focus': {
       outline: 0,
