@@ -90,4 +90,31 @@ describe('styled', () => {
     const style = getComputedStyle(queryByTestId('styled'))
     expect(style.color).toBe('cyan')
   })
+
+  test('overriding styles of children', () => {
+    const StyledChild = styled.button(
+      {
+        color: 'red',
+      },
+      {},
+      '_child',
+    )
+
+    const StyledParent = styled.div({
+      bg: 'blue',
+    })
+
+    const WrappedEl: any = () => (
+      <StyledParent>
+        <StyledChild data-testid="styled" />
+      </StyledParent>
+    )
+
+    const { queryByTestId } = render(
+      <WrappedEl s={{ _child: { color: 'green' } }} />,
+    )
+
+    const style = getComputedStyle(queryByTestId('styled'))
+    expect(style.color).toBe('green')
+  })
 })

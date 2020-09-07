@@ -1,5 +1,5 @@
-import React, { ReactElement, FC, useState } from 'react'
-import { map, find, filter, findIndex } from 'lodash'
+import React, { ReactElement, FC, useRef, useState } from 'react'
+import { findIndex, forEach } from 'lodash'
 import { ChevronDown as ChevronDownIcon } from 'react-feather'
 import { SSelect, SSelectWrapper, SSelectIcon } from './Select.styled'
 import { keyGen } from '../../../utils'
@@ -12,66 +12,62 @@ interface SelectOptionProps {
 
 interface SelectProps {
   options: SelectOptionProps[]
-  multiple?: boolean
+  multi?: boolean
   block?: boolean
   onChange?: any
   value?: any
 }
 
-function getSelectValue(items: any, multiple?: boolean): any {
-  return multiple
-    ? map(filter(items, 'selected'), 'value')
-    : (find(items, 'selected') || {}).value
-}
-
 export const Select: FC<SelectProps> = ({
   options,
-  multiple,
+  multi,
   block,
   onChange,
-  value,
+  value: defaultValue,
 }: SelectProps): ReactElement => {
-  const [items, setItems] = useState(options)
-  const [currentValue, setCurrentValue] = useState(
-    value || getSelectValue(items, multiple),
-  )
+  const selectRef: any = useRef()
+  const [currentValue, setCurrentValue] = useState(defaultValue)
 
-  function onSelectChange(event: any) {
-    const currentSelectedItemIndex: number = findIndex(
-      items,
-      (item: any) => JSON.stringify(item.value) === event.target.value,
-    )
-    let newItems = [...items]
+  function onSelectChange() {
+    if (multi) {
+      const indexes: any[] = []
 
-    if (multiple) {
-      newItems[currentSelectedItemIndex].selected = !newItems[
-        currentSelectedItemIndex
-      ].selected
+      forEach(selectRef?.current?.options, (option: any, index: number) => {
+        if (option.selected) {
+          indexes.push(index)
+        }
+      })
+
+      setCurrentValue(indexes.join(','))
+
+      const values = indexes.map((index: number) => {
+        return options[index].value
+      })
+
+      onChange(values)
     } else {
-      newItems = newItems.map((item: any) => ({ ...item, selected: false }))
-      newItems[currentSelectedItemIndex].selected = true
+      const index: number = findIndex(selectRef?.current?.options, 'selected')
+      setCurrentValue(index.toString())
+      onChange(options[index].value)
     }
-
-    setItems([...newItems])
-    const newValue = getSelectValue(newItems, multiple)
-    setCurrentValue(newValue)
-    if (onChange) onChange(newValue)
   }
 
   return (
-    <SSelectWrapper sRef="Select_Wrapper" width={block && '100%'}>
+    <SSelectWrapper sRef="Select_Wrapper" s={{ width: block && '100%' }}>
       <SSelect
         sRef="Select"
-        multiple={multiple}
+        multiple={multi}
         onChange={onSelectChange}
-        value={currentValue}
         data-testid="select"
+        value={currentValue}
+        ref={selectRef}
       >
         {options &&
-          options.map((option: SelectOptionProps) => (
+          options.map((option: SelectOptionProps, index: number) => (
             <option
-              value={option.value}
+              value={JSON.stringify(index)}
               key={keyGen()}
+              selected={option.selected}
               data-testid="select-option"
             >
               {option.label}

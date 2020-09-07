@@ -1,11 +1,19 @@
 import { isArray } from 'lodash'
 
 function passStylePropsToChildren(child: any, style: any) {
-  if (child && child.sRef && style[child.sRef]) {
-    return {
+  if (child?.props?.sRef && style && style[child?.props?.sRef]) {
+    console.log(child.props.sRef)
+    console.log(style[child.props.sRef])
+
+    const newChild = {
       ...child,
-      s: style[child.sRef],
+      props: {
+        ...child.props,
+        s: style[child.props.sRef],
+      },
     }
+
+    return newChild
   }
 
   return child
@@ -15,9 +23,9 @@ export function resolveStylePropOnChildren(children: any, style: any) {
   let newChildren: any
 
   if (isArray(children)) {
-    newChildren = children.map((child: any) =>
-      passStylePropsToChildren(child, style),
-    )
+    newChildren = children.map((child: any) => {
+      return passStylePropsToChildren(child, style)
+    })
   } else {
     newChildren = passStylePropsToChildren(children, style)
   }

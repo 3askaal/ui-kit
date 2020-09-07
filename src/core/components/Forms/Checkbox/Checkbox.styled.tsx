@@ -1,20 +1,24 @@
 import { styled } from '../../../utils'
 
-export const SCheckbox = styled.div({
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '1.4rem',
-  height: '1.4rem',
-  flexShrink: 0,
-  cursor: 'pointer',
-  border: 'thick',
-  color: 'primary',
-  borderColor: 'currentColor',
-  borderRadius: 'm',
-  padding: 'xxs',
-})
+export const SCheckbox = styled.div(
+  {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '1.4rem',
+    height: '1.4rem',
+    flexShrink: 0,
+    cursor: 'pointer',
+    border: 'thick',
+    color: 'primary',
+    borderColor: 'currentColor',
+    borderRadius: 'm',
+    padding: 'xxs',
+  },
+  {},
+  '_checkbox',
+)
 
 export const SCheckboxIndicator = styled.div(
   {

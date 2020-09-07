@@ -192,7 +192,16 @@ export const ComponentsView = () => {
             />
 
             <Select
-              multiple
+              options={[
+                { label: 'Option 1', value: 'option-1' },
+                { label: 'Option 2', value: 'option-2' },
+                { label: 'Option 3', value: 'option-3' },
+                { label: 'Option 4', value: 'option-4' },
+              ]}
+            />
+
+            <Select
+              multi
               options={[
                 { label: 'Option 1', value: 1 },
                 { label: 'Option 2', value: 2 },
@@ -242,8 +251,14 @@ export const ComponentsView = () => {
               <Input placeholder="Input" />
               <Button>Button</Button>
             </ElementGroup>
-            <ElementGroup s={{ '> *': { borderRadius: 'l' } }}>
-              <Label isOutline>Label</Label>
+            <ElementGroup
+              s={{
+                '> *': { borderRadius: 'l' },
+              }}
+            >
+              <Label isOutline sRef="elementGroupLabel">
+                Label
+              </Label>
               <Input placeholder="Input" />
               <Button>Button</Button>
             </ElementGroup>

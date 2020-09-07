@@ -21,7 +21,7 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({
       props: {
         ...child.props,
         onChange: (newValue: any) => {
-          if (typeof newValue === 'string' || typeof newValue === 'boolean') {
+          if (newValue !== undefined) {
             setDataBinding(newValue)
           }
         },

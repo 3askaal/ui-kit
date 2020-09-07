@@ -36,6 +36,7 @@ export const Checkbox: FC<CheckboxProps> = ({
       sRef="Checkbox_Wrapper"
       isDisabled={isDisabled}
       data-testid="checkbox-label"
+      {...props}
     >
       <SCheckbox sRef="Checkbox">
         <SCheckboxInput
@@ -44,7 +45,6 @@ export const Checkbox: FC<CheckboxProps> = ({
           onChange={onChangeHandler}
           checked={isChecked}
           data-testid="checkbox"
-          {...props}
         />
         <SCheckboxIndicator sRef="Checkbox_Indicator" isChecked={isChecked}>
           {icon || null}
