@@ -11,7 +11,7 @@ export const SCheckbox = styled.div(
     flexShrink: 0,
     cursor: 'pointer',
     border: 'thick',
-    color: 'primary',
+    color: 'currentColor',
     borderColor: 'currentColor',
     borderRadius: 'm',
     padding: 'xxs',
@@ -55,6 +55,7 @@ export const SCheckboxWrapper = styled.label(
     display: 'flex',
     alignItems: 'center',
     cursor: 'pointer',
+    color: 'primary',
   },
   {
     isDisabled: {
