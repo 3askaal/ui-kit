@@ -13,7 +13,7 @@ export const SCheckbox = styled.div(
     border: 'thick',
     color: 'currentColor',
     borderColor: 'currentColor',
-    borderRadius: 's',
+    borderRadius: 'm',
     padding: 'xxs',
   },
   {},
@@ -24,7 +24,7 @@ export const SCheckboxIndicator = styled.div(
   {
     width: '100%',
     height: '100%',
-    borderRadius: 's',
+    borderRadius: 'xs',
   },
   {
     isChecked: {

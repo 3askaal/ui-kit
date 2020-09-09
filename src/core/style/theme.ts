@@ -40,6 +40,7 @@ export const theme: any = {
   presets,
   states,
   radii: {
+    xs: '0.075rem',
     s: '0.125rem',
     m: '0.25rem',
     l: '0.5rem',
