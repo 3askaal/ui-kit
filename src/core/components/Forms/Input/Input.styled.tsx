@@ -1,7 +1,9 @@
 import { styled } from '../../../utils'
+import { FormElementReset } from '..'
 
 export const SInput = styled.input(
   {
+    ...FormElementReset,
     display: 'flex',
     border: 'thick',
     color: 'primary',
