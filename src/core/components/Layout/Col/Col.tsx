@@ -5,10 +5,10 @@ export const SCol = styled.div(({ width }: any) => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  flexGrow: width ? 0 : 1,
-  flexBasis: width ? `${width}%` : 0,
 
   ...(width && {
+    flexGrow: 0,
+    flexBasis: `${width}%`,
     flexShrink: 0,
   }),
 }))
