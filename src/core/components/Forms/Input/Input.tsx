@@ -12,7 +12,7 @@ export const Input: FC<any> = ({
     if (value !== undefined || value !== null) {
       InputRef.current.value = value
     }
-  }, [value])
+  }, [])
 
   return (
     <SInput
