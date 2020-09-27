@@ -1,4 +1,4 @@
-import React, { ReactElement, FC } from 'react'
+import React, { ReactElement, FC, useEffect, useRef } from 'react'
 import { SInput } from './Input.styled'
 
 export const Input: FC<any> = ({
@@ -6,11 +6,20 @@ export const Input: FC<any> = ({
   onChange,
   ...props
 }: any): ReactElement => {
+  const InputRef: any = useRef()
+
+  useEffect(() => {
+    if (value !== undefined || value !== null) {
+      InputRef.current.defaultValue = value
+      InputRef.current.focus()
+    }
+  }, [value])
+
   return (
     <SInput
       sRef="Input"
+      ref={InputRef}
       onChange={onChange ? (e: any) => onChange(e.target.value) : null}
-      defaultValue={value}
       {...props}
     />
   )
