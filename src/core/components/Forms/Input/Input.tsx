@@ -11,6 +11,12 @@ export const Input: FC<any> = ({
   useEffect(() => {
     if (value !== undefined || value !== null) {
       InputRef.current.value = value
+    }
+  }, [])
+
+  useEffect(() => {
+    if (value !== undefined || value !== null) {
+      InputRef.current.value = value
       InputRef.current.focus()
     }
   }, [value])
