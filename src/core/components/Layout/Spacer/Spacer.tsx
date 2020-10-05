@@ -7,21 +7,13 @@ export const SSpacer = styled.div(
     width: '100%',
     flexDirection,
 
-    '> *': {
+    '> * + *': {
       ...(flexDirection === 'column' && {
-        marginBottom: theme.space[size],
-
-        ':last-child': {
-          marginBottom: 0,
-        },
+        marginTop: theme.space[size],
       }),
 
       ...(flexDirection === 'row' && {
-        marginRight: theme.space[size],
-
-        ':last-child': {
-          marginRight: 0,
-        },
+        marginLeft: theme.space[size],
       }),
     },
   }),

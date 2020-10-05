@@ -15,7 +15,7 @@ export const Popup: FC<PopupProps> = ({
   header,
   actions,
   onClose,
-}: PopupProps): ReactElement => {
+}: PopupProps): ReactElement | null => {
   const [isOpen, setIsOpen] = useState(true)
 
   const onCloseHandler = () => {
@@ -26,44 +26,40 @@ export const Popup: FC<PopupProps> = ({
     }
   }
 
-  return (
-    <>
-      {isOpen && (
-        <SPopupWrapper data-testid="popup">
-          <SPopupCloser
-            onClick={onCloseHandler}
-            data-testid="popup-closer"
-          />
-          <SPopup>
-            {header ?
-              (<SPopupHeader>
-                <SPopupHeaderContent>
-                  <Title level={4}>{header}</Title>
-                </SPopupHeaderContent>
-                <SPopupCloseButton
-                  onClick={() => {
-                    setIsOpen(false)
-                    onClose()
-                  }}
-                >
-                  <XIcon />
-                </SPopupCloseButton>
-              </SPopupHeader>
-              )
-            : null}
-            <SPopupContent>
-              {children}
-             </SPopupContent>
-            {actions?.length ? (
-              <SPopupFooter>
-                <Row gutter="s" s={{flexWrap: 'nowrap'}}>
-                  {actions.map((action: any) => <Col width={`${100 / actions.length}`}>{action}</Col>)}
-                </Row>
-              </SPopupFooter>
-            ) : null}
-          </SPopup>
-        </SPopupWrapper>
-      )}
-    </>
-  )
+  return isOpen ? (
+    <SPopupWrapper data-testid="popup">
+      <SPopupCloser
+        onClick={onCloseHandler}
+        data-testid="popup-closer"
+      />
+      <SPopup>
+        {header ?
+          (<SPopupHeader>
+            <SPopupHeaderContent>
+              <Title level={4}>{header}</Title>
+            </SPopupHeaderContent>
+            <SPopupCloseButton
+              onClick={() => {
+                setIsOpen(false)
+                onClose()
+              }}
+            >
+              <XIcon />
+            </SPopupCloseButton>
+          </SPopupHeader>
+          )
+        : null}
+        <SPopupContent>
+          {children}
+          </SPopupContent>
+        {actions?.length ? (
+          <SPopupFooter>
+            <Row gutter="s" s={{flexWrap: 'nowrap'}}>
+              {actions.map((action: any) => <Col width={`${100 / actions.length}`}>{action}</Col>)}
+            </Row>
+          </SPopupFooter>
+        ) : null}
+      </SPopup>
+    </SPopupWrapper>
+  ) : null
 }
