@@ -38,5 +38,9 @@ export const GlobalStyle: any = createGlobalStyle<any>(({ theme }) => {
     a: {
       color: 'inherit',
     },
+
+    svg: {
+      display: 'block'
+    }
   }
 })

@@ -6,11 +6,12 @@ export const SPopupWrapper = styled.div({
   left: 0,
   right: 0,
   bottom: 0,
-  padding: '20px',
   margin: 0,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  padding: 'm',
+  zIndex: 9999,
 })
 
 export const SPopupCloser = styled.div({
@@ -19,40 +20,46 @@ export const SPopupCloser = styled.div({
   left: 0,
   right: 0,
   bottom: 0,
-  backgroundColor: 'overlay',
+  backgroundColor: 'misc.overlay',
+  cursor: 'pointer'
 })
 
 export const SPopup = styled.div({
   position: 'relative',
-  border: 'main',
-  margin: '20px',
   width: '100%',
-  zIndex: 100,
-  borderRadius: 's',
+  borderRadius: 'm',
   overflow: 'hidden',
-  maxWidth: '420px',
+  backgroundColor: 'white',
+  maxWidth: '640px',
 })
 
 export const SPopupHeader = styled.div({
   display: 'flex',
   borderBottom: 'main',
-  backgroundColor: 'primary',
-  color: 'black',
+  color: 'primary',
+  alignItems: 'center'
 })
 
 export const SPopupHeaderContent = styled.div({
   flexGrow: 1,
-  padding: 's',
+  paddingY: 's',
+  paddingX: 'm',
+  alignItems: 'center'
 })
 
 export const SPopupContent = styled.div({
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  padding: 'm',
+  paddingY: 's',
+  paddingX: 'm',
+})
+
+export const SPopupFooter = styled.div({
+  display: 'flex',
+  paddingY: 's',
+  paddingX: 'm',
 })
 
 export const SPopupCloseButton = styled.div({
-  padding: 's',
   cursor: 'pointer',
+  paddingX: 's'
 })

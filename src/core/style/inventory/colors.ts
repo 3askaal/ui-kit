@@ -1,5 +1,5 @@
 import { mix } from 'chroma-js'
-import { darken, brighten } from '../utils'
+import { darken, brighten, rgba } from '../utils'
 
 interface Colors {
   [variant: string]: string
@@ -37,4 +37,7 @@ export const colors: Colors = {
   code: 'rgb(42, 39, 52)',
   positive: mix('green', primary, 0.1),
   negative: mix('red', primary, 0.1),
+  misc: {
+    overlay: rgba('black', .25)
+  }
 }

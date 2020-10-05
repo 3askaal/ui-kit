@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   List,
   Button,
@@ -17,6 +17,7 @@ import {
   Col,
   Box,
   Text,
+  Popup,
   Body,
   TextArea,
   Progress,
@@ -25,6 +26,9 @@ import {
 import { Preview, Section } from '../../components'
 
 export const ComponentsView = () => {
+  const [modalOpened, setModalOpened] = useState<any>({})
+  const toggleModalOpened = (instance: number) => setModalOpened({...modalOpened, [instance]: !modalOpened[instance]})
+
   return (
     <Container s={{ paddingY: 'xxl' }} data-testid="components-view">
       <Spacer>
@@ -262,6 +266,42 @@ export const ComponentsView = () => {
               <Input placeholder="Input" />
               <Button>Button</Button>
             </ElementGroup>
+          </Preview>
+
+          <Preview title="Popup">
+            <div>
+              <Button onClick={() => toggleModalOpened(1)}>Open Modal</Button>
+              {modalOpened[1] ? (
+                <Popup onClose={() => toggleModalOpened(1)}>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptate temporibus ut placeat error similique doloremque, facilis velit culpa sed facere reprehenderit in minus harum esse fugit eius quaerat ab?</p>
+                </Popup>
+              ) : null}
+            </div>
+          </Preview>
+
+          <Preview title="Popup (with header)">
+            <div>
+              <Button onClick={() => toggleModalOpened(2)}>Open Modal</Button>
+              {modalOpened[2] ? (
+                <Popup header="Modal" onClose={() => toggleModalOpened(2)}>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptate temporibus ut placeat error similique doloremque, facilis velit culpa sed facere reprehenderit in minus harum esse fugit eius quaerat ab?</p>
+                </Popup>
+              ) : null}
+            </div>
+          </Preview>
+
+          <Preview title="Popup (with header and footer)">
+            <div>
+              <Button onClick={() => toggleModalOpened(3)}>Open Modal</Button>
+              {modalOpened[3] ? (
+                <Popup header="Modal" actions={[
+                  <Button isBlock>Cancel</Button>,
+                  <Button isBlock isPositive>Confirm</Button>
+                ]} onClose={() => toggleModalOpened(3)}>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptate temporibus ut placeat error similique doloremque, facilis velit culpa sed facere reprehenderit in minus harum esse fugit eius quaerat ab?</p>
+                </Popup>
+              ) : null}
+            </div>
           </Preview>
         </Section>
       </Spacer>

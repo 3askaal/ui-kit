@@ -1,5 +1,5 @@
 import { styled } from '../../../utils'
-import { FormElementReset } from '..'
+import { FormElementReset } from '../reset'
 
 export const SSelectWrapper = styled.div({
   position: 'relative',

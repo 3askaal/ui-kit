@@ -1,44 +1,66 @@
 import React, { ReactElement, FC, useState } from 'react'
-import { SPopupWrapper, SPopupCloser, SPopup } from './Popup.styled'
+import { X as XIcon } from 'react-feather'
+import { Row, Col, Title } from '@core'
+import { SPopupWrapper, SPopupCloser, SPopup, SPopupHeader, SPopupHeaderContent, SPopupContent, SPopupFooter, SPopupCloseButton } from './Popup.styled'
 
 export interface PopupProps {
   header?: any
+  actions?: any
   children?: any
   onClose?: any
 }
 
 export const Popup: FC<PopupProps> = ({
   children,
+  header,
+  actions,
   onClose,
 }: PopupProps): ReactElement => {
   const [isOpen, setIsOpen] = useState(true)
+
+  const onCloseHandler = () => {
+    setIsOpen(false)
+
+    if (onClose) {
+      onClose()
+    }
+  }
 
   return (
     <>
       {isOpen && (
         <SPopupWrapper data-testid="popup">
           <SPopupCloser
-            onClick={() => {
-              setIsOpen(false)
-              onClose()
-            }}
+            onClick={onCloseHandler}
             data-testid="popup-closer"
           />
           <SPopup>
-            {/* <SPopupHeader>
-              <SPopupHeaderContent>{header}</SPopupHeaderContent>
-              <SPopupCloseButton
-                onClick={() => {
-                  setIsOpen(false)
-                  onClose()
-                }}
-              >
-                <XIcon />
-              </SPopupCloseButton>
-            </SPopupHeader> */}
-            {/* <SPopupContent> */}
-            {children}
-            {/* </SPopupContent> */}
+            {header ?
+              (<SPopupHeader>
+                <SPopupHeaderContent>
+                  <Title level={4}>{header}</Title>
+                </SPopupHeaderContent>
+                <SPopupCloseButton
+                  onClick={() => {
+                    setIsOpen(false)
+                    onClose()
+                  }}
+                >
+                  <XIcon />
+                </SPopupCloseButton>
+              </SPopupHeader>
+              )
+            : null}
+            <SPopupContent>
+              {children}
+             </SPopupContent>
+            {actions?.length ? (
+              <SPopupFooter>
+                <Row gutter="s" s={{flexWrap: 'nowrap'}}>
+                  {actions.map((action: any) => <Col width={`${100 / actions.length}`}>{action}</Col>)}
+                </Row>
+              </SPopupFooter>
+            ) : null}
           </SPopup>
         </SPopupWrapper>
       )}

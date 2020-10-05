@@ -16,6 +16,10 @@ export const PreviewComponent: FC<PreviewComponentProps> = ({
   const [dataBinding, setDataBinding] = useState<any>(null)
 
   function handleOnChange(child: any) {
+    if (!child) {
+      return null
+    }
+
     const newChild: any = {
       ...child,
       props: {
