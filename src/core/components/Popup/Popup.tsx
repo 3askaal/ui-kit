@@ -1,6 +1,6 @@
 import React, { ReactElement, FC, useState } from 'react'
 import { X as XIcon } from 'react-feather'
-import { Row, Col, Title } from '@core'
+import { Row, Col, Title } from "../.."
 import { SPopupWrapper, SPopupCloser, SPopup, SPopupHeader, SPopupHeaderContent, SPopupContent, SPopupFooter, SPopupCloseButton } from './Popup.styled'
 
 export interface PopupProps {
