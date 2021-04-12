@@ -23,6 +23,7 @@ export const GlobalStyle: any = createGlobalStyle<any>(({ theme }) => {
       ...rootFontSizeStyling,
       '-webkit-font-smoothing': 'antialiased',
       '-moz-osx-font-smoothing': 'grayscale',
+      'scroll-behavior': 'smooth'
     },
 
     body: {

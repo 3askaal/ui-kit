@@ -4,8 +4,8 @@ import { useLocation } from 'react-router-dom'
 import { List, ListItem, Box, Link, keyGen } from '../../core'
 
 export const Nav = ({ to, children, items }: any) => {
-  const [isOpen, setIsOpen] = useState(true)
-  const { pathname: activeLink, hash: activeHash }: any = useLocation()
+  const { pathname: activeLink }: any = useLocation()
+  const [isOpen, setIsOpen] = useState(activeLink === to)
 
   return (
     <List s={{ border: 0, marginBottom: 'xs' }}>
@@ -45,25 +45,21 @@ export const Nav = ({ to, children, items }: any) => {
         ) : null}
       </ListItem>
       {isOpen && items
-        ? items.map(({ to: itemTo, content, disabled }: any) => (
+        ? items.map(({ title, ref, isInView }: any) => (
             <ListItem
               s={{ border: 0, marginLeft: 'xs' }}
-              disabled={disabled}
-              key={keyGen(content)}
+              key={keyGen(title)}
               data-testid="nav-sub-item"
             >
-              {itemTo ? (
-                <Link
-                  to={to + itemTo}
-                  s={{
-                    color: activeHash === itemTo ? 'primary' : 'inherit',
-                  }}
-                >
-                  {content}
-                </Link>
-              ) : (
-                content
-              )}
+              <Box
+                onClick={() => ref?.current?.scrollIntoView()}
+                s={{
+                  cursor: 'pointer',
+                  color: isInView ? 'primary' : 'inherit',
+                }}
+              >
+                {title}
+              </Box>
             </ListItem>
           ))
         : null}
