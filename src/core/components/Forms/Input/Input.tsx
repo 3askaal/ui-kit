@@ -9,7 +9,7 @@ export const Input: FC<any> = ({
   const InputRef: any = useRef()
 
   useEffect(() => {
-    if (value !== undefined || value !== null) {
+    if (value !== undefined && value !== null) {
       InputRef.current.value = value
     }
   }, [value])
