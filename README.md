@@ -5,7 +5,7 @@ Personal React Component Library and Toolkit. With a **wrapper** around **Styled
 - Declare component styles and variants with **theme values**
 - Override component styles with the `style` prop
 - Override component styles or add variants in the **theme object**
-- Override styles of **child elements** of components by using the `sRef` prop
+- Override styles of **child elements** of components by using the `ref` prop
 
 ## Installation
 

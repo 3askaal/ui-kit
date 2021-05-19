@@ -19,7 +19,7 @@ describe('Select', () => {
     )
 
     const select = queryByTestId('select')
-    fireEvent.change(select, { target: { value: 2 } })
+    fireEvent.change(select, { target: { value: 1 } })
     expect(onChange).toHaveBeenCalledTimes(1)
     expect(onChange).toHaveBeenCalledWith(2)
   })
@@ -35,14 +35,14 @@ describe('Select', () => {
           { label: 'Option 3', value: 3 },
           { label: 'Option 4', value: 4 },
         ]}
-        multiple
+        multi
         onChange={onChange}
       />,
     )
 
     const select = queryByTestId('select')
+    fireEvent.change(select, { target: { value: 0 } })
     fireEvent.change(select, { target: { value: 1 } })
-    fireEvent.change(select, { target: { value: 2 } })
     expect(onChange).toHaveBeenCalledTimes(2)
     expect(onChange).toHaveBeenCalledWith([1, 2])
   })

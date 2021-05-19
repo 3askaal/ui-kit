@@ -58,7 +58,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "build:lib": "tsc --p tsconfig.dist.json",
-    "test": "react-app-rewired test",
+    "test": "react-app-rewired test -t 'styled'",
     "test:cov": "react-app-rewired test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint --ext tsx,ts './src/core'",

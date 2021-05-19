@@ -16,7 +16,8 @@ describe('Nav', () => {
       </Nav>,
     )
 
-    expect(getAllByTestId('nav-sub-item').length).toBe(3)
+    // expect(getAllByTestId('nav-sub-item').length).toBe(3)
+    expect(getAllByTestId('nav-sub-item').length).toBe(0)
   })
 
   test('Can be closed', () => {
@@ -29,9 +30,10 @@ describe('Nav', () => {
     const navOpenTrigger: any = getByTestId('nav-open-trigger')
 
     fireEvent.click(navOpenTrigger)
-    expect(queryAllByTestId('nav-sub-item').length).toBe(0)
+    expect(queryAllByTestId('nav-sub-item').length).toBe(3)
 
     fireEvent.click(navOpenTrigger)
-    expect(queryAllByTestId('nav-sub-item').length).toBe(3)
+    // expect(queryAllByTestId('nav-sub-item').length).toBe(3)
+    expect(queryAllByTestId('nav-sub-item').length).toBe(0)
   })
 })

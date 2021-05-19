@@ -168,6 +168,7 @@ export const ComponentsView = () => {
               isDisabled
               label="Checked disabled Checkbox with label"
             />
+            <Checkbox isChecked debug s={{ _checkbox: { _indicator: { backgroundColor: 'red' } } }} />
           </Preview>
         </Section>
 
